@@ -1,12 +1,22 @@
 package test.action;
 
-import org.junit.jupiter.api.BeforeEach;
+import main.action.DiscreteAction;
+import main.action.DiscreteActionInterface;
+import main.timer.OneShotTimer;
 import org.junit.jupiter.api.Test;
 
 class DiscreteActionDependentTest {
+    private OneShotTimer ost;
+    private OneShotTimer ost2;
+    private DiscreteAction daOneShot;
+    private DiscreteActionInterface daOneShot2;
 
-    @BeforeEach
+    @org.junit.jupiter.api.BeforeEach
     void setUp() {
+        ost = new OneShotTimer(10);
+        ost2 = new OneShotTimer(15);
+        daOneShot = new DiscreteAction(ost, "hasNext", ost);
+        daOneShot2 = new DiscreteAction(ost, "hasNext", ost2);
     }
 
     /*

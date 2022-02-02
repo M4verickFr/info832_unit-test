@@ -1,30 +1,41 @@
 package test.discreteBehaviorSimulator;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class LogFormatterTest {
-
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
+    /*
+    Entrée : format(rec)
+    Description : Test de format
+    Résultat Attendu : Message du buffer
+     */
     @Test
-    void format() {
+    void LF1_format() {
     }
 
+    /*
+    Entrée : calcDate(0)
+    Description : Test de calcDate
+    Résultat Attendu : 1970.01.01 00:00:00.00
+     */
     @Test
-    void getHead() {
+    void LF2_calcDate() {
     }
 
+    /*
+    Entrée : getHead(h)
+    Description : Test de getHead
+    Résultat Attendu : ""
+     */
     @Test
-    void getTail() {
+    void LF3_getHead() {
+    }
+
+    /*
+    Entrée : getTail(h)
+    Description : Test de getTail
+    Résultat Attendu : ""
+     */
+    @Test
+    void LF4_getTail() {
     }
 }

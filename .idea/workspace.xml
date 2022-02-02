@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a711b76e-1885-4985-ae42-06553f51feb3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionDependentTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionOnOffDependentTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/discreteBehaviorSimulator/ClockTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/discreteBehaviorSimulator/DiscreteActionSimulatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/info832_unit-test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/info832_unit-test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/discreteBehaviorSimulator/LogFormatterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/discreteBehaviorSimulator/LogFormatterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/DateTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/DateTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/MergedTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/MergedTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/OneShotTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/OneShotTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/PeriodicTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/PeriodicTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/RandomTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/RandomTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/TimeBoundedTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/TimeBoundedTimerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/action/DiscreteActionDependentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionDependentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/action/DiscreteActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionTest.java" afterDir="false" />
     </list>
     <list id="204889ef-edc1-4251-88c9-d634b02c263d" name="Changes by esteb" comment="" />
     <option name="SHOW_DIALOG" value="false" />

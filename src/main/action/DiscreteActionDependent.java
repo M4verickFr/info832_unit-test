@@ -1,10 +1,10 @@
-package action;
+package main.action;
 
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.TreeSet;
 
-import timer.Timer;
+import main.timer.Timer;
 
 /**
  * @author flver
@@ -20,7 +20,7 @@ public class DiscreteActionDependent implements DiscreteActionInterface {
 	
 	
 	/**
-	 * Construct a series of dependent actions, first action (method) called is baseMethodName, then method nextMethod() is called to select the next action. 
+	 * Construct a series of dependent actions, first main.test.action (method) called is baseMethodName, then method nextMethod() is called to select the next main.test.action.
 	 * 
 	 * @param o
 	 * @param baseMethodName

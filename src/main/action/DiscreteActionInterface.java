@@ -1,4 +1,4 @@
-package action;
+package main.action;
 
 import java.lang.reflect.Method;
 import java.util.Iterator;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 public interface DiscreteActionInterface extends Comparable<DiscreteActionInterface>, Iterator<DiscreteActionInterface>{
 
 	/*
-	 * decrease the time of discrete action 
+	 * decrease the time of discrete main.test.action
 	 */
 	public	void spendTime(int t);
 	
@@ -30,7 +30,7 @@ public interface DiscreteActionInterface extends Comparable<DiscreteActionInterf
 
 	// COMPARAISON
 	/*
-	 * compare discrete action according to the time before execution
+	 * compare discrete main.test.action according to the time before execution
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */

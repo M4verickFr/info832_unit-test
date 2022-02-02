@@ -1,11 +1,11 @@
-package action;
+package main.action;
 
 import java.lang.reflect.Method;
 import java.util.TreeSet;
 import java.util.Vector;
 
-import timer.DateTimer;
-import timer.Timer;
+import main.timer.DateTimer;
+import main.timer.Timer;
 
 /**
  * @author flver
@@ -21,7 +21,7 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 	private Integer lastOffDelay=0;
 	
 	/**
-	 * Construct an On Off dependence, first action (method) called is On, then method nextMethod() is called to select the next action.
+	 * Construct an On Off dependence, first main.test.action (method) called is On, then method nextMethod() is called to select the next main.test.action.
 	 * The default behavior of nextMethod() is to switch between On and Off actions.  It can be change by overloading. 
 	 * 
 	 * @param o

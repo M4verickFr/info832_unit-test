@@ -1,4 +1,4 @@
-package timer;
+package main.timer;
 
 public class TimeBoundedTimer implements Timer {
 	

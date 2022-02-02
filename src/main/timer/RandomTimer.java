@@ -1,4 +1,4 @@
-package timer;
+package main.timer;
 
 import java.util.Random;
 import java.util.Vector;

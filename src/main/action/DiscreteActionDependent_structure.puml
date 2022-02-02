@@ -68,7 +68,7 @@ config=StructureConfiguration;
     "showPackageLevels": 2,
     "showDetailedClassStructure": true
   },
-  "rootClass": "action.DiscreteActionDependent"
+  "rootClass": "main.test.action.DiscreteActionDependent"
 }
 diagram meta data end '/
 
@@ -81,7 +81,7 @@ digraph g {
 
 'nodes 
 subgraph cluster_110364485 { 
-   	label=timer
+   	label=main.test.timer
 	labeljust=l
 	fillcolor="#ececec"
 	style=filled
@@ -194,7 +194,7 @@ TimeBoundedTimer110364485[
 } 
 
 subgraph cluster_1422950858 { 
-   	label=action
+   	label=main.test.action
 	labeljust=l
 	fillcolor="#ececec"
 	style=filled
@@ -266,7 +266,7 @@ DiscreteActionOnOffDependent1422950858[
 } 
 
 subgraph cluster_1765246937 { 
-   	label=discreteBehaviorSimulator
+   	label=main.test.discreteBehaviorSimulator
 	labeljust=l
 	fillcolor="#ececec"
 	style=filled

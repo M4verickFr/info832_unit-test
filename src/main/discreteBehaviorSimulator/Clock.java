@@ -1,4 +1,4 @@
-package discreteBehaviorSimulator;
+package main.discreteBehaviorSimulator;
 
 
 import java.util.Date;

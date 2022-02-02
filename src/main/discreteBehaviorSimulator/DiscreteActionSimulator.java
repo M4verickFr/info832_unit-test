@@ -1,5 +1,5 @@
 
-package discreteBehaviorSimulator;
+package main.discreteBehaviorSimulator;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
@@ -9,8 +9,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import action.DiscreteAction;
-import action.DiscreteActionInterface;
+import main.action.DiscreteActionInterface;
 
 
 /**
@@ -76,7 +75,7 @@ public class DiscreteActionSimulator implements Runnable {
 	public void addAction(DiscreteActionInterface c){
 
 		if(c.hasNext()) {
-			// add to list of actions, next is call to the action exist at the first time
+			// add to list of actions, next is call to the main.test.action exist at the first time
 			this.actionsList.add(c.next());
 
 			// sort the list for ordered execution 
@@ -89,17 +88,17 @@ public class DiscreteActionSimulator implements Runnable {
 	}*/
 
 	/**
-	 * @return the laps time before the next action
+	 * @return the laps time before the next main.test.action
 	 */
 	private int nextLapsTime() {
 		DiscreteActionInterface currentAction = this.actionsList.get(0);
 		return currentAction.getCurrentLapsTime();
 	}
 	/**
-	 * @return laps time of the running action
+	 * @return laps time of the running main.test.action
 	 */
 	private int runAction(){
-		// Run the first action
+		// Run the first main.test.action
 		int sleepTime = 0;
 
 
@@ -118,11 +117,11 @@ public class DiscreteActionSimulator implements Runnable {
 			}
 			m.invoke(o);
 			if(this.globalTime!=null) {
-				this.logger.log(Level.FINE, "[DAS] run action " + m.getName() + " on " + o.getClass().getName() + ":" + o.hashCode() + " at " + this.globalTime.getTime() + " after " + sleepTime + " time units\n");
-				System.out.println("[DAS] run action " + m.getName() + " on " + o.getClass().getName() + ":" + o.hashCode() + " at " + this.globalTime.getTime() + " after " + sleepTime + " time units\n");
+				this.logger.log(Level.FINE, "[DAS] run main.test.action " + m.getName() + " on " + o.getClass().getName() + ":" + o.hashCode() + " at " + this.globalTime.getTime() + " after " + sleepTime + " time units\n");
+				System.out.println("[DAS] run main.test.action " + m.getName() + " on " + o.getClass().getName() + ":" + o.hashCode() + " at " + this.globalTime.getTime() + " after " + sleepTime + " time units\n");
 			}else {
-				this.logger.log(Level.FINE, "[DAS] run action " + m.getName() + " on " + o.getClass().getName() + ":" + o.hashCode() + " after " + sleepTime + " time units\n");
-				System.out.println("[DAS] run action " + m.getName() + " on " + o.getClass().getName() + ":" + o.hashCode() + " after " + sleepTime + " time units\n");
+				this.logger.log(Level.FINE, "[DAS] run main.test.action " + m.getName() + " on " + o.getClass().getName() + ":" + o.hashCode() + " after " + sleepTime + " time units\n");
+				System.out.println("[DAS] run main.test.action " + m.getName() + " on " + o.getClass().getName() + ":" + o.hashCode() + " after " + sleepTime + " time units\n");
 			
 			}
 			
@@ -142,14 +141,14 @@ public class DiscreteActionSimulator implements Runnable {
 			this.actionsList.get(i).spendTime(runningTimeOf1stCapsul);
 		}
 
-		// get new time lapse of first action
+		// get new time lapse of first main.test.action
 		/*if(this.globalTime == null) {
 			this.actionsList.get(0).updateTimeLaps();
 		}else {	
 			this.actionsList.get(0).updateTimeLaps(this.globalTime.getTime());
 		}
 		
-		// remove the action if no more lapse time is defined
+		// remove the main.test.action if no more lapse time is defined
 		if(this.actionsList.get(0).getLastLapsTime() == null) {
 			this.actionsList.remove(0);
 		}else {
@@ -162,11 +161,11 @@ public class DiscreteActionSimulator implements Runnable {
 			a = a.next();
 			this.actionsList.addElement(a);
 			if(this.globalTime!=null) {
-				this.logger.log(Level.FINE, "[DAS] reset action " + a.getMethod().getName() + " on " + a.getObject().getClass().getName() + ":" + a.getObject().hashCode() + " at " + this.globalTime.getTime() + " to " + a.getCurrentLapsTime() + " time units\n");
-				System.out.println("[DAS] reset action " + a.getMethod().getName() + " on " + a.getObject().getClass().getName() + ":" + a.getObject().hashCode() + " at " + this.globalTime.getTime() + " to " + a.getCurrentLapsTime() + " time units\n");
+				this.logger.log(Level.FINE, "[DAS] reset main.test.action " + a.getMethod().getName() + " on " + a.getObject().getClass().getName() + ":" + a.getObject().hashCode() + " at " + this.globalTime.getTime() + " to " + a.getCurrentLapsTime() + " time units\n");
+				System.out.println("[DAS] reset main.test.action " + a.getMethod().getName() + " on " + a.getObject().getClass().getName() + ":" + a.getObject().hashCode() + " at " + this.globalTime.getTime() + " to " + a.getCurrentLapsTime() + " time units\n");
 			}else {
-				this.logger.log(Level.FINE, "[DAS] reset action " + a.getMethod().getName() + " on " + a.getObject().getClass().getName() + ":" + a.getObject().hashCode() + " to " + a.getCurrentLapsTime() + " time units\n");
-				System.out.println("[DAS] reset action " + a.getMethod().getName() + " on " + a.getObject().getClass().getName() + ":" + a.getObject().hashCode() + " to " + a.getCurrentLapsTime() + " time units\n");
+				this.logger.log(Level.FINE, "[DAS] reset main.test.action " + a.getMethod().getName() + " on " + a.getObject().getClass().getName() + ":" + a.getObject().hashCode() + " to " + a.getCurrentLapsTime() + " time units\n");
+				System.out.println("[DAS] reset main.test.action " + a.getMethod().getName() + " on " + a.getObject().getClass().getName() + ":" + a.getObject().hashCode() + " to " + a.getCurrentLapsTime() + " time units\n");
 			}
 			Collections.sort(this.actionsList);
 		}
@@ -194,7 +193,7 @@ public class DiscreteActionSimulator implements Runnable {
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
-				//TODO add global time synchronizer for action with list of date and avoid drift 
+				//TODO add global time synchronizer for main.test.action with list of date and avoid drift
 			}else{
 				System.out.println("NOTHING TO DO\n");
 				this.stop();

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a711b76e-1885-4985-ae42-06553f51feb3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/action/DiscreteAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/action/DiscreteAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/action/DiscreteActionDependent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/action/DiscreteActionDependent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/action/DiscreteActionDependent_structure.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/action/DiscreteActionDependent_structure.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/action/DiscreteActionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/action/DiscreteActionInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/action/DiscreteActionOnOffDependent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/action/DiscreteActionOnOffDependent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/discreteBehaviorSimulator/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/discreteBehaviorSimulator/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/discreteBehaviorSimulator/ClockObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/discreteBehaviorSimulator/ClockObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/discreteBehaviorSimulator/DiscreteActionSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/discreteBehaviorSimulator/DiscreteActionSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/discreteBehaviorSimulator/LogFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/discreteBehaviorSimulator/LogFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timer/DateTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/DateTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timer/MergedTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/MergedTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timer/OneShotTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/OneShotTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timer/PeriodicTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/PeriodicTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timer/RandomTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/RandomTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timer/TimeBoundedTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/TimeBoundedTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timer/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/Timer.java" afterDir="false" />
+    </list>
+    <list id="204889ef-edc1-4251-88c9-d634b02c263d" name="Changes by esteb" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="24JmCh54nZQQXRZMzAHSPSGD30U" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a711b76e-1885-4985-ae42-06553f51feb3" name="Changes" comment="" />
+      <created>1643356938322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643356938322</updated>
+      <workItem from="1643356940495" duration="3789000" />
+      <workItem from="1643805883060" duration="2732000" />
+      <workItem from="1643809488710" duration="617000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

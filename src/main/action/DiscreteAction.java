@@ -1,4 +1,4 @@
-package action;
+package main.action;
 
 import java.lang.reflect.Method;
 import java.util.TreeSet;
@@ -8,8 +8,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import discreteBehaviorSimulator.LogFormatter;
-import timer.Timer;
+import main.timer.Timer;
 
 /**
  * @author Tiphaine Bulou (2016)
@@ -23,9 +22,9 @@ public class DiscreteAction implements DiscreteActionInterface {
 	private Method method;
 	
 	
-	private Timer timmer;				// timer provides new lapsTime
-	//private TreeSet<Integer> dates;	// obsolete, managed in timer 
-	//private Vector<Integer> lapsTimes;// obsolete, managed in timer
+	private Timer timmer;				// main.test.timer provides new lapsTime
+	//private TreeSet<Integer> dates;	// obsolete, managed in main.test.timer
+	//private Vector<Integer> lapsTimes;// obsolete, managed in main.test.timer
 	private Integer lapsTime; 			// waiting time (null if never used)
 	
 	private Logger logger;

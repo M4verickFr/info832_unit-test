@@ -9,10 +9,12 @@ import java.time.Clock;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ClockTest {
-    private Clock clock;
+    private Clock clock1;
+    private Clock clock2;
 
     @BeforeEach
     void setUp() {
+
     }
 
     @AfterEach
@@ -26,7 +28,7 @@ class ClockTest {
      */
     @Test
     void C1_getInstanceWithAttributeNull() {
-        assertEquals(clock, null);
+        assertEquals(clock1, null);
     }
 
     /*
@@ -36,6 +38,7 @@ class ClockTest {
      */
     @Test
     void C2_getInstanceWithoutAttributeNull() {
+
     }
 
     /*

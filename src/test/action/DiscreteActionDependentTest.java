@@ -54,10 +54,26 @@ class DiscreteActionDependentTest {
      */
     @Test
     void DAD3_nextMethodWithCurrentEqualsBase(){
+        dadOneShot.addDependence(ost2, "hasNext", ost2);
         dadOneShot.nextMethod();
         //Aucun moyen de tester le bon fonctionnement
         // it et currentAction impossible à atteindre
     }
+
+    /*
+        Entrée : nextMethod()
+        Description : Test de la méthode nextMethod avec currentAction dernière action de la list
+        Résultat Attendu : La variable la currentAction prend la valeur de baseAction
+     */
+    @Test
+    void DAD4_nextMethodWithCurrentIsLastAction(){
+        dadOneShot.addDependence(ost2, "hasNext", ost2);
+        dadOneShot.nextMethod();
+        dadOneShot.nextMethod();
+        //Aucun moyen de tester le bon fonctionnement
+        // it et currentAction impossible à atteindre
+    }
+
 
 
 

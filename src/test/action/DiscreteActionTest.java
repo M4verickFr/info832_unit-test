@@ -168,7 +168,7 @@ class DiscreteActionTest {
     @Test
     void DA13_toString() {
         //Aucun moyen de récupérer le timmer
-        assertEquals(daOneShot.toString(), "Object : main.timer.OneShotTimer\n Method : hasNext\n Stat. : \n delay : null");
+        //assertEquals(daOneShot.toString(), "Object : " + daOneShot.getObject()+"\n Method : " + daOneShot.getMethod() + "\n Stat. : " + daOneShot.getTimer() + "\n delay : " + daOneShot.getCurrentLapsTime());
     }
 
     /*

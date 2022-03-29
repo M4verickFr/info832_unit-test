@@ -1,4 +1,4 @@
-package test.discreteBehaviorSimulator;
+package test.discrete_behavior_simulator;
 
 import main.discrete_behavior_simulator.Clock;
 import org.junit.jupiter.api.AfterEach;

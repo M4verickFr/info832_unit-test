@@ -1,34 +1,23 @@
 package test.discreteBehaviorSimulator;
 
+import main.discreteBehaviorSimulator.Clock;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.Clock;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ClockTest {
-    private Clock clock1;
-    private Clock clock2;
+    private Clock clock;
 
     @BeforeEach
     void setUp() {
+        this.clock = Clock.getInstance();
 
     }
 
     @AfterEach
     void tearDown() {
-    }
-
-    /*
-    Entrée : getInstanceWithAttributeNull()
-    Description : Test de getInstance() avec un attribut instance null
-    Résultat Attendu : Valeur de la clock
-     */
-    @Test
-    void C1_getInstanceWithAttributeNull() {
-        assertEquals(clock1, null);
     }
 
     /*
@@ -38,7 +27,10 @@ class ClockTest {
      */
     @Test
     void C2_getInstanceWithoutAttributeNull() {
-
+        Clock clocktest;
+        clocktest = Clock.getInstance();
+        assertEquals(this.clock, clocktest);
+        assertSame(this.clock, clocktest);
     }
 
     /*
@@ -48,6 +40,9 @@ class ClockTest {
      */
     @Test
     void C3_addObserver() {
+        //Aucun accès à la liste d'observers
+
+
     }
 
     /*
@@ -57,6 +52,7 @@ class ClockTest {
      */
     @Test
     void C4_removeObserver() {
+        //Aucun accès à la liste d'observers
     }
 
     /*
@@ -66,6 +62,8 @@ class ClockTest {
     */
     @Test
     void C5_setVirtualWithParamTrue() {
+        this.clock.setVirtual(true);
+        assertTrue(this.clock.isVirtual());
     }
 
     /*
@@ -75,15 +73,20 @@ class ClockTest {
      */
     @Test
     void C6_setVirtualWithParamFalse() {
+        this.clock.setVirtual(false);
+        assertFalse(this.clock.isVirtual());
+
     }
 
     /*
     Entrée : isVirtual()
-    Description : Test de setVirtual avec le paramètre à false
-    Résultat Attendu : Assigne la valeur de virtuel à false
+    Description : Test de isVirtual
+    Résultat Attendu : Retourne la valeur de virtual
      */
     @Test
     void C7_isVirtual() {
+        boolean testTrue = true;
+        assertEquals(this.clock.isVirtual(), testTrue);
     }
 
     /*

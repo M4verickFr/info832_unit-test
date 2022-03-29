@@ -62,7 +62,7 @@ class DiscreteActionDependentTest {
 
     /*
         Entrée : nextMethod()
-        Description : Test de la méthode nextMethod avec currentAction dernière action de la list
+        Description : Test de la méthode nextMethod avec currentAction dernière action de la liste
         Résultat Attendu : La variable la currentAction prend la valeur de baseAction
      */
     @Test
@@ -74,7 +74,117 @@ class DiscreteActionDependentTest {
         // it et currentAction impossible à atteindre
     }
 
+    /*
+            Entrée : nextMethod()
+            Description : Test de la méthode nextMethod avec currentAction dernière action de la list
+            Résultat Attendu : La variable la currentAction prend la valeur de baseAction
+         */
+    @Test
+    void DAD6_spendTimeWithSeveralAction(){
+        dadOneShot.addDependence(ost2, "hasNext", ost2);
+        dadOneShot.addDependence(ost2, "hasNext", ost2);
+        dadOneShot.spendTime(4);
+        //Aucun moyen de tester le bon fonctionnement
+        //Aucun acces aux actions
+    }
 
+    /*
+        Entrée : DiscreteAction(o, m, timer) getMethod()
+        Description : Test du getter de method d’un objet initialisé
+        Résultat Attendu : Retourne la méthode m
+     */
+    @Test
+    void DAD7_getMethod() {
+        assertEquals(dadOneShot.getMethod().getName(),"hasNext");
+    }
+
+    /*
+        Entrée :DiscreteAction(o, m, timer) getCurrentLapsTime()
+        Description : Test du getter de lapsTime d’un objet initialisé
+        Résultat Attendu : Retourne null
+     */
+    @Test
+    void DAD8_getCurrentLapsTime() {
+        assertEquals(dadOneShot.getCurrentLapsTime(),null);
+        dadOneShot.next();
+        assertEquals(dadOneShot.getCurrentLapsTime(),null);
+    }
+
+    /*
+        Entrée : DiscreteAction(o, m, timer) getObject()
+        Description : Test du getter de objet
+        Résultat Attendu : Retourne l’objet o
+
+     */
+    @Test
+    void DAD9_getObject() {
+        assertEquals(dadOneShot.getObject(),ost);
+    }
+
+    /*
+        Entrée : compareTo(c)
+        Description : Test de comparaison de currentAction avec l'objet passé en paramètre
+        Résultat Attendu : Retourne le resultat de la comparaison entre les 2 objets
+     */
+    @Test
+    void DAD10_compareTo() {
+        dadOneShot2.next();
+        assertEquals(dadOneShot.compareTo(dadOneShot2),1);
+    }
+
+    /*
+        Entrée : isEmpty()
+        Description : Test isEmpty avec le TreeSet est vide
+        Résultat Attendu : Retourne True
+     */
+    @Test
+    void DAD11_isEmpty() {
+        assertEquals(dadOneShot.isEmpty(),true);
+    }
+
+    /*
+        Entrée : hasNext()
+        Description : Test de hasNext avec baseAction a une action suivante et depedentsActions non vide
+        Résultat Attendu : Retourne True
+     */
+    @Test
+    void DAD12_hasNextWithBaseActionHasNextAndDependentActionsNotEmpty() {
+        dadOneShot.addDependence(ost2, "hasNext", ost2);
+        assertEquals(dadOneShot.hasNext(),true);
+    }
+
+    /*
+        Entrée : hasNext()
+        Description : Test de hasNext avec baseAction a une action suivante et depedentsActions vide
+        Résultat Attendu : Retourne True
+     */
+    @Test
+    void DAD13_hasNextWithBaseActionHasNextAndDependentActionsEmpty() {
+        assertEquals(dadOneShot.hasNext(),true);
+    }
+
+    /*
+        Entrée : hasNext()
+        Description : Test de hasNext avec baseAction n'a pas d'action suivante et depedentsActions non vide
+        Résultat Attendu : Retourne True
+     */
+    @Test
+    void DAD14_hasNextWithBaseActionNotHasNextAndDependentActionsNotEmpty() {
+        dadOneShot.addDependence(ost2, "hasNext", ost2);
+        dadOneShot.next();
+        assertEquals(dadOneShot.hasNext(),true);
+    }
+
+    /*
+        Entrée : hasNext()
+        Description : Test de hasNext avec baseAction n'a pas d'action suivante et depedentsActions vide
+        Résultat Attendu : Retourne False
+     */
+    @Test
+    void DAD15_hasNextWithBaseActionNotHasNextAndDependentActionsEmpty() {
+        dadOneShot.next();
+        assertEquals(dadOneShot.hasNext(),false);
+    }
 
 
 }

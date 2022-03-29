@@ -10,7 +10,7 @@ public class DateTimer  implements Timer {
 	Iterator<Integer> it;
 	
 	public DateTimer(TreeSet<Integer> dates) {
-		this.lapsTimes = new Vector<Integer>();
+		this.lapsTimes = new Vector<>();
 		Integer last;
 		Integer current=0;
 		
@@ -25,7 +25,7 @@ public class DateTimer  implements Timer {
 	}
 	
 	public DateTimer(Vector<Integer> lapsTimes) {
-		this.lapsTimes = new Vector<Integer>(lapsTimes);
+		this.lapsTimes = new Vector<>(lapsTimes);
 		this.it = this.lapsTimes.iterator();
 	}
 

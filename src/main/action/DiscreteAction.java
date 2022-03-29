@@ -1,10 +1,6 @@
 package main.action;
 
 import java.lang.reflect.Method;
-import java.util.TreeSet;
-import java.util.Vector;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,7 +18,7 @@ public class DiscreteAction implements DiscreteActionInterface {
 	private Method method;
 	
 	
-	private Timer timmer;				// main.test.timer provides new lapsTime
+	private Timer timer;				// main.test.timer provides new lapsTime
 	//private TreeSet<Integer> dates;	// obsolete, managed in main.test.timer
 	//private Vector<Integer> lapsTimes;// obsolete, managed in main.test.timer
 	private Integer lapsTime; 			// waiting time (null if never used)
@@ -34,25 +30,11 @@ public class DiscreteAction implements DiscreteActionInterface {
 	private DiscreteAction() {
 		// Start logger
 			this.logger = Logger.getLogger("DAS");
-			//this.logger = Logger.getLogger("APP");
 			this.logger.setLevel(Level.ALL);
 			this.logger.setUseParentHandlers(true);
-			
-			/*FileHandler logFile; 
-			ConsoleHandler logConsole; 
-			try{
-				this.logFile = new FileHandler(this.getClass().getName() + ".log");
-				//this.logFile.setFormatter(new SimpleFormatter());
-				this.logFile.setFormatter(new LogFormatter());
-				this.logConsole = new ConsoleHandler();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			this.logger.addHandler(logFile);
-			this.logger.addHandler(logConsole);*/
 	}
 	
-	public DiscreteAction(Object o, String m, Timer timmer){
+	public DiscreteAction(Object o, String m, Timer timer){
 		this();
 		this.object = o;
 		try{	
@@ -61,8 +43,7 @@ public class DiscreteAction implements DiscreteActionInterface {
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		this.timmer = timmer;
-		//this.updateTimeLaps();
+		this.timer = timer;
 	}
 	
 	// ATTRIBUTION
@@ -73,7 +54,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 			this.lapsTime -= t;
 		}
 		this.logger.log(Level.FINE, "[DA] operate spendTime on  " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime());
-		//System.out.println(         "[DA] operate spendTime on  " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime() + "\n");
 	}
 
 	// RECUPERATION
@@ -111,28 +91,19 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 
 	public String toString(){
-		return "Object : " + this.object.getClass().getName() + "\n Method : " + this.method.getName()+"\n Stat. : "+ this.timmer + "\n delay: " + this.lapsTime;
+		return "Object : " + this.object.getClass().getName() + "\n Method : " + this.method.getName()+"\n Stat. : "+ this.timer + "\n delay: " + this.lapsTime;
 
 	}
 
 	public DiscreteActionInterface next() {
 		Integer old = this.lapsTime;
-		this.lapsTime = this.timmer.next();
+		this.lapsTime = this.timer.next();
 		this.logger.log(Level.FINE, "[DA] operate next on  " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime());
-		//System.out.println("[DA] operate 'next' on " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime() + "\n");
 		return this;
 	}
 
 	public boolean hasNext() {
-		Boolean more=false;
-		if (this.timmer != null && this.timmer.hasNext()) {
-			more = true;
-		}/*else if (this.dates != null) {
-			more = !this.dates.isEmpty();
-		}else if (this.lapsTimes != null) {
-			more = !this.lapsTimes.isEmpty();
-		}*/
-		return more;		
+		return this.timer != null && this.timer.hasNext();
 	}
 	
 

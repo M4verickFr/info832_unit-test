@@ -17,7 +17,6 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 	protected DiscreteActionInterface offAction;
 	protected DiscreteActionInterface currentAction;
 	
-	private Integer currentLapsTime;
 	private Integer lastOffDelay=0;
 	
 	/**
@@ -30,19 +29,12 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 	 * @param off
 	 * @param timerOff
 	 */
-	/*public DiscreteActionOnOffDependent(Wo o, Method on, Timer timerOn, Method off, Timer timerOff){
-		this.onAction = new DiscreteAction(o, on, timerOn);
-		this.offAction = new DiscreteAction(o, off, timerOff);
-		
-		this.currentAction = this.onAction;
-	}*/
 	
 	public DiscreteActionOnOffDependent(Object o, String on, Timer timerOn, String off, Timer timerOff){
 		this.onAction = new DiscreteAction(o, on, timerOn);
 		this.offAction = new DiscreteAction(o, off, timerOff);
 		
 		this.currentAction = this.offAction;
-		this.currentLapsTime = 0;
 	}
 	
 	private void dates2Timalapse(TreeSet<Integer> datesOn, TreeSet<Integer> datesOff, Vector<Integer> timeLapseOn, Vector<Integer> timeLapseOff) {
@@ -58,7 +50,7 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 		}
 		Integer nextDate;
 		
-		while(datesOn.size()>0 || datesOff.size()>0) {
+		while(!datesOn.isEmpty() || !datesOff.isEmpty()) {
 			nextDate = currentDates.first();
 		
 			currentTimeLapse.add(nextDate - date);

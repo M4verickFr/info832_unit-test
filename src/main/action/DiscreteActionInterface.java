@@ -46,5 +46,5 @@ public interface DiscreteActionInterface extends Comparable<DiscreteActionInterf
 	 * (non-Javadoc)
 	 * @see java.util.Iterator#hasNext()
 	 */
-	//public boolean hasNext();
+	public boolean hasNext();
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SonarLintProjectSettings">
+    <option name="fileExclusions">
+      <list>
+        <option value="FILE:src/test/discreteBehaviorSimulator/ClockTest.java" />
+        <option value="DIRECTORY:src/test" />
+        <option value="DIRECTORY:Documentation" />
+      </list>
+    </option>
+  </component>
+</project>

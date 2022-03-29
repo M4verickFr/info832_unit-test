@@ -2,15 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a711b76e-1885-4985-ae42-06553f51feb3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint-state.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info832_unit-test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/exceptions/UnexpectedTimeChangeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/exceptions/UnexpectedTimerConstructorException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/action/DiscreteActionDependentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionDependentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/action/DiscreteActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/action/DiscreteAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/action/DiscreteAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/action/DiscreteActionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/action/DiscreteActionInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/action/DiscreteActionOnOffDependent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/action/DiscreteActionOnOffDependent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/discreteBehaviorSimulator/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/discrete_behavior_simulator/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/discreteBehaviorSimulator/ClockObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/discrete_behavior_simulator/ClockObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/discreteBehaviorSimulator/DiscreteActionSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/discrete_behavior_simulator/DiscreteActionSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/discreteBehaviorSimulator/LogFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/discrete_behavior_simulator/LogFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/timer/DateTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/DateTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/timer/PeriodicTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/PeriodicTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/timer/RandomTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/RandomTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/timer/TimeBoundedTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/TimeBoundedTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/timer/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/Timer.java" afterDir="false" />
     </list>
     <list id="204889ef-edc1-4251-88c9-d634b02c263d" name="Changes by esteb" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,10 +49,41 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ClockTest.C1_getInstanceWithAttributeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="info832_unit-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.discreteBehaviorSimulator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.discreteBehaviorSimulator" />
+      <option name="MAIN_CLASS_NAME" value="test.discreteBehaviorSimulator.ClockTest" />
+      <option name="METHOD_NAME" value="C1_getInstanceWithAttributeNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ClockTest.C1_getInstanceWithAttributeNull" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -40,6 +96,8 @@
       <workItem from="1643356940495" duration="3789000" />
       <workItem from="1643805883060" duration="2732000" />
       <workItem from="1643809488710" duration="617000" />
+      <workItem from="1647956538754" duration="6065000" />
+      <workItem from="1648542644271" duration="337000" />
     </task>
     <servers />
   </component>

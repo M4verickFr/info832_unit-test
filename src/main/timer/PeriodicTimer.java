@@ -51,7 +51,7 @@ public class PeriodicTimer implements Timer {
 	@Override
 	public Integer next() {
 		
-		int next =  this.next;
+		int previous =  this.next;
 		
 		if(this.moreOrLess != null) {
 			this.next = this.period + (int)(this.moreOrLess.next() - this.moreOrLess.getMean());
@@ -59,7 +59,7 @@ public class PeriodicTimer implements Timer {
 			this.next = this.period;
 		}
 		
-		return next;
+		return previous;
 	}
 	
 	/*@Override

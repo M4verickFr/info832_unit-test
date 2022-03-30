@@ -1,5 +1,5 @@
 
-package main.discreteBehaviorSimulator;
+package main.discrete_behavior_simulator;
 
 import java.lang.reflect.Method;
 import java.util.Collections;

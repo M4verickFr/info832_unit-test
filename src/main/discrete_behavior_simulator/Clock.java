@@ -1,5 +1,7 @@
-package main.discreteBehaviorSimulator;
+package main.discrete_behavior_simulator;
 
+
+import main.exceptions.UnexpectedTimeChangeException;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,7 +24,7 @@ public class Clock {
 		this.nextJump=0;
 		this.lock = new ReentrantReadWriteLock();
 		this.virtual = true;
-		this.observers = new HashSet<ClockObserver>();
+		this.observers = new HashSet<>();
 	}
 	
 	public static Clock getInstance() {
@@ -52,25 +54,13 @@ public class Clock {
 			o.nextClockChange(this.nextJump);
 		}
 	}
-	/*public void setTime(int time) throws IllegalAccessException {
-		this.lock.lock();
-		if (this.time < time) {
-			this.time = time;
-			for(ClockObserver o:this.observers) {
-				o.ClockChange();
-			}
-		}else{
-			this.lock.unlock();
-			throw new IllegalAccessException("Set time error, cannot go back to the past !!!");
-		}
-		this.lock.unlock();
-	}*/
-	public void increase(int time) throws Exception {
+
+	public void increase(int time) throws UnexpectedTimeChangeException {
 
 		this.lockWriteAccess();
 
 		if(time != this.nextJump) {
-			throw new Exception("Unexpected time change");
+			throw new UnexpectedTimeChangeException("Unexpected time change");
 		}
 		this.time += time;
 		for(ClockObserver o:this.observers) {

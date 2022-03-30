@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a711b76e-1885-4985-ae42-06553f51feb3" name="Changes" comment="fix datetimer conflicts">
+    <list default="true" id="a711b76e-1885-4985-ae42-06553f51feb3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/8/98a8bfd55d08f30dd2dff313e0fd40bdb852b180" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/timer/DateTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/timer/DateTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/info832_unit-test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/info832_unit-test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/info832_unit-test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/info832_unit-test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/action/DiscreteActionDependentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionDependentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/action/DiscreteActionOnOffDependentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/action/DiscreteActionOnOffDependentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/discreteBehaviorSimulator/ClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/discreteBehaviorSimulator/ClockTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/DateTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/DateTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/MergedTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/MergedTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/OneShotTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/OneShotTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/PeriodicTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/PeriodicTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/RandomTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/RandomTimerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/timer/TimeBoundedTimerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/timer/TimeBoundedTimerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/discrete_behavior_simulator/ClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/discrete_behavior_simulator/ClockTest.java" afterDir="false" />
     </list>
     <list id="204889ef-edc1-4251-88c9-d634b02c263d" name="Changes by esteb" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,36 +36,30 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Cours/S8/INFO833/exemplePeersimPSIA" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
-    <configuration name="ClockTest.C1_getInstanceWithAttributeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="info832_unit-test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.discreteBehaviorSimulator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.discreteBehaviorSimulator" />
-      <option name="MAIN_CLASS_NAME" value="test.discreteBehaviorSimulator.ClockTest" />
-      <option name="METHOD_NAME" value="C1_getInstanceWithAttributeNull" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration default="true" type="Application" factoryName="Application">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ClockTest.C1_getInstanceWithAttributeNull" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,8 +72,10 @@
       <workItem from="1643356940495" duration="3789000" />
       <workItem from="1643805883060" duration="2732000" />
       <workItem from="1643809488710" duration="617000" />
-      <workItem from="1647956538754" duration="6065000" />
-      <workItem from="1648542644271" duration="759000" />
+      <workItem from="1643816890134" duration="651000" />
+      <workItem from="1644580412356" duration="599000" />
+      <workItem from="1646755135713" duration="271000" />
+      <workItem from="1648621290760" duration="1358000" />
     </task>
     <servers />
   </component>
@@ -106,10 +92,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="corr" />
-    <MESSAGE value="fix datetimer conflicts" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix datetimer conflicts" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

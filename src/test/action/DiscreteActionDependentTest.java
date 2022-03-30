@@ -3,7 +3,7 @@ package test.action;
 import main.action.DiscreteActionDependent;
 import main.action.DiscreteActionInterface;
 import main.timer.OneShotTimer;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

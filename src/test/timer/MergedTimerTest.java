@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import timer.MergedTimer;
 import timer.OneShotTimer;
-import timer.Timer;
+import main.timer.Timer;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -41,9 +41,9 @@ class MergedTimerTest {
     }
 
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : MergedTimer(null, null)
+Description : Test d’une Merge avec 2 timers null
+Résultat Attendu : NullPointerException
 */
     @Test
     void MT1() {
@@ -53,9 +53,9 @@ Résultat Attendu :
     }
 
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : MergedTimer(oneShotTimer1, null)
+Description : Test d’une Merge avec 2eme timer null
+Résultat Attendu : NullPointerException
 */
     @Test
     void MT2() {
@@ -63,9 +63,9 @@ Résultat Attendu :
 
     }
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : MergedTimer(null, oneShotTimer2)
+Description : Test d’une Merge avec 1er timer null
+Résultat Attendu : NullPointerException
 */
     @Test
     void MT3() {
@@ -73,9 +73,9 @@ Résultat Attendu :
 
     }
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : MergedTimer(oneShotTimer1, oneShotTimer2)
+Description : Test d’une Merge avec 2 timers OneShotTimer
+Résultat Attendu : True
 */
     @Test
     void MT4() {
@@ -84,9 +84,9 @@ Résultat Attendu :
 
     }
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée :mergedTimer1.hasNext()
+Description : Test de hasNext() sur mergedTimer1
+Résultat Attendu : True
 */
     @Test
     void MT5() {
@@ -95,19 +95,20 @@ Résultat Attendu :
 
     }
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : assertEquals(3, mergedTimer1.next())
+Description : Test si la valeur du mergedTimer1 vaut bien la somme des timers 1 et 2 à partir desquels il est créé
+Résultat Attendu : True
 */
     @Test
     void MT6() {
         // On doit avoir 3 car on merge les 2 timers avec 1 et 2 comme valeur, donc 1+2, donc on doit avoir True
         assertEquals(3, mergedTimer1.next());
     }
+
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : oneShotAndInfinite.hasNext()
+Description : Test si notre timer “infini” possède une valeur même après avoir été utilisé
+Résultat Attendu : True
 */
     @Test
     void MT7() {
@@ -115,9 +116,9 @@ Résultat Attendu :
         assertTrue(oneShotAndInfinite.hasNext());
     }
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : assertEquals(13, oneShotAndInfinite.next())
+Description : Test si la valeur du Merger vaut bien la somme des timers 3 et “infini” à partir desquels il est créé
+Résultat Attendu : True
 */
     @Test
     void MT8() {
@@ -126,9 +127,9 @@ Résultat Attendu :
 
     }
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : oneShotAndInfinite.hasNext()
+Description : Test de hasNext
+Résultat Attendu : False
 */
     @Test
     void MT9() {
@@ -137,9 +138,9 @@ Résultat Attendu :
 
     }
     /*
-Entrée :
-Description :
-Résultat Attendu :
+Entrée : oneShotAndInfinite.next()
+Description : Test si la valeur suivante est null
+Résultat Attendu : True
 */
     @Test
     void MT10() {
@@ -147,8 +148,6 @@ Résultat Attendu :
         assertNull(oneShotAndInfinite.next());
 
     }
-
-
 
 
 }

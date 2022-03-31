@@ -2,7 +2,7 @@ package test.timer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import timer.OneShotTimer;
+import main.timer.OneShotTimer;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OneShotTimerTest {
@@ -17,9 +17,9 @@ class OneShotTimerTest {
     }
 
     /*
-Entrée : OneShotTimer(15)
-Description : Test création OneShotTimer avec at > 0
-Résultat Attendu : OSTimer créer avec at initalisé et hasNext = True
+Entrée : oneShotTimer1.hasNext()
+Description : Test de hasNext sur un timer qui n’a jamais été utilisé
+Résultat Attendu : True
  */
     @Test
     void OST1() {
@@ -29,9 +29,9 @@ Résultat Attendu : OSTimer créer avec at initalisé et hasNext = True
     }
 
     /*
-Entrée : OneShotTimer(15)
-Description : Test création OneShotTimer avec at > 0
-Résultat Attendu : OSTimer créer avec at initalisé et hasNext = True
+Entrée : assertEquals(value, oneShotTimer1.next())
+Description : Test de next sur un timer qui n’a jamais été utilisé
+Résultat Attendu : True
  */
     @Test
     void OST2(){
@@ -40,9 +40,9 @@ Résultat Attendu : OSTimer créer avec at initalisé et hasNext = True
     }
 
     /*
-Entrée : OneShotTimer(15)
-Description : Test création OneShotTimer avec at > 0
-Résultat Attendu : OSTimer créer avec at initalisé et hasNext = True
+Entrée : oneShotTimer1.hasNext()
+Description : Test de hasNext sur un timer qui n’a jamais été utilisé
+Résultat Attendu : False
  */
     @Test
     void OST3(){
@@ -53,9 +53,9 @@ Résultat Attendu : OSTimer créer avec at initalisé et hasNext = True
     }
 
     /*
-Entrée : OneShotTimer(15)
-Description : Test création OneShotTimer avec at > 0
-Résultat Attendu : OSTimer créer avec at initalisé et hasNext = True
+Entrée :oneShotTimer1.next()
+Description : Test de next sur un timer qui n’a jamais été utilisé
+Résultat Attendu : Null
  */
     @Test
     void OST4(){

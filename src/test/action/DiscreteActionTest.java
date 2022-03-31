@@ -25,13 +25,13 @@ class DiscreteActionTest {
     void DA1_constructorMethodInObject() {
         assertEquals(daOneShot.getObject(), ost);
         assertEquals(daOneShot.getMethod().getName(), "hasNext");
-        //Aucune possibilité de récupérer daOneShot.timmer
+        // Aucune possibilité de récupérer daOneShot.timmer
     }
 
     @Test
     void DA2_constructorMethodNotInObject() {
-        //DiscreteAction daFail = new DiscreteAction(ost1, "notDeclaredMethod", ost2);
-        //assertNull(daFail.getMethod());
+        // DiscreteAction daFail = new DiscreteAction(ost1, "notDeclaredMethod", ost2);
+        // assertNull(daFail.getMethod());
     }
 
     /*
@@ -172,13 +172,13 @@ class DiscreteActionTest {
     }
 
     /*
-        Entrée :
-        Description :
-        Résultat Attendu :
+        Entrée : DiscreteAction(o, m, timer) hasNext()
+        Description : Test méthode hasNext() avec timer != null et timer a une prochaine valeur
+        Résultat Attendu : Retourne True
 
      */
     @Test
-    void DA14_next() {
+    void DA14_hasNext() {
         assertEquals(daOneShot.getCurrentLapsTime(),null);
         daOneShot.next();
         assertEquals(daOneShot.getCurrentLapsTime(),10);

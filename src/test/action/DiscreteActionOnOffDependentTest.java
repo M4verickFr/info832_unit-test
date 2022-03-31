@@ -9,15 +9,38 @@ class DiscreteActionOnOffDependentTest {
 
     private OneShotTimer ost;
     private OneShotTimer ost2;
-    private DiscreteActionDependent dadOneShot;
-    private DiscreteActionInterface dadOneShot2;
+    private DiscreteActionOnOffDependent daofdOneShot;
+    private DiscreteActionOnOffDependent daofdOneShot2;
+    private DiscreteActionOnOffDependent daofdOneShot3;
+    private DiscreteActionOnOffDependent daofdOneShot4;
+    private DiscreteActionInterface daOneShot;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         ost = new OneShotTimer(10);
         ost2 = new OneShotTimer(15);
-        dadOneShot = new DiscreteActionDependent(ost, "hasNext", ost);
-        dadOneShot2 = new DiscreteActionDependent(ost, "hasNext", ost2);
+        daOneShot = new DiscreteAction(ost, "hasNext", ost2);
+        daofdOneShot = new DiscreteActionOnOffDependent(ost, "hasNext", ost, "getMethod", ost2);
+        // Second Constructor : DatesOn < DateOff
+        TreeSet<Integer> datesOn=new TreeSet<Integer>();  
+        datesOn.add(24);  
+        TreeSet<Integer> datesOff=new TreeSet<Integer>();  
+        datesOff.add(42);  
+        daofdOneShot2 = new DiscreteActionOnOffDependent(ost, "hasNext", datesOn, "getMethod", datesOff);
+
+        // Second Constructor : DatesOn < DateOff
+        TreeSet<Integer> datesOn=new TreeSet<Integer>();  
+        datesOff.add(42);  
+        TreeSet<Integer> datesOff=new TreeSet<Integer>();  
+        datesOn.add(24);  
+        daofdOneShot3 = new DiscreteActionOnOffDependent(ost, "hasNext", datesOn, "getMethod", datesOff);
+
+        // Second Constructor : DatesOn < DateOff
+        TreeSet<Integer> datesOn=new TreeSet<Integer>();  
+        datesOn.add(24);  
+        TreeSet<Integer> datesOff=new TreeSet<Integer>();  
+        datesOff.add(24);  
+        daofdOneShot4 = new DiscreteActionOnOffDependent(ost, "hasNext", datesOn, "getMethod", datesOff);
     }
 
     /*
@@ -28,6 +51,11 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D1_firstConstructor(){
+        // Aucune possibilité de récupérer daofdOneShot.onAction
+        // Aucune possibilité de récupérer daofdOneShot.offAction
+        // assertEquals(daofdOneShot.onAction.getObject(), ost);
+        // assertEquals(daofdOneShot.offAction.getObject(), ost);
+        assertEquals(daofdOneShot.getObject(), ost2);
 
     }
 
@@ -38,7 +66,11 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D2_secondConstructorWithFirstDateOnInfFirstDateOff(){
-
+        // Aucune possibilité de récupérer daofdOneShot.onAction
+        // Aucune possibilité de récupérer daofdOneShot.offAction
+        // assertEquals(daofdOneShot.onAction.getObject(), ost);
+        // assertEquals(daofdOneShot.offAction.getObject(), ost);
+        assertEquals(daofdOneShot2.getObject(), ost);
     }
 
     /*
@@ -49,8 +81,12 @@ class DiscreteActionOnOffDependentTest {
     */
 
     @Test
-    void DAD00D3_secondConstructorWithFirstDateOnPosterieurFirstDateOff(){
-
+    void DAD00D3_secondConstructorWithFirstDateOnSupFirstDateOff(){
+        // Aucune possibilité de récupérer daofdOneShot.onAction
+        // Aucune possibilité de récupérer daofdOneShot.offAction
+        // assertEquals(daofdOneShot.onAction.getObject(), ost);
+        // assertEquals(daofdOneShot.offAction.getObject(), ost);
+        assertEquals(daofdOneShot3.getObject(), ost2);
     }
 
     /*
@@ -60,7 +96,11 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D4_secondConstructorWithFirstDateOnEqualsFirstDateOff(){
-
+        // Aucune possibilité de récupérer daofdOneShot.onAction
+        // Aucune possibilité de récupérer daofdOneShot.offAction
+        // assertEquals(daofdOneShot.onAction.getObject(), ost);
+        // assertEquals(daofdOneShot.offAction.getObject(), ost);
+        assertEquals(daofdOneShot4.getObject(), ost2);
     }
 
     /*
@@ -70,6 +110,11 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D5_nextActionWithCurrentActionDiffOnAction(){
+        assertEquals(daofdOneShot.getCurrentLapsTime(),null);
+        assertEquals(daofdOneShot.currentAction(),ost2);
+        daofdOneShot.nextAction();
+        assertEquals(daofdOneShot.getCurrentLapsTime(),0);
+        assertEquals(daofdOneShot.currentAction(),ost);
 
     }
 
@@ -80,7 +125,13 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D6_nextActionWithCurrentActionEqualsOnAction(){
-
+        assertEquals(daofdOneShot2.getCurrentLapsTime(),null);
+        assertEquals(daofdOneShot2.currentAction(),ost);
+        daofdOneShot.nextAction();
+        assertEquals(daofdOneShot2.getCurrentLapsTime(),24);
+        assertEquals(daofdOneShot2.currentAction(),ost2);
+        // Aucune possibilité de récupérer daofdOneShot.lastOffDelay
+        // assertEquals(daofdOneShot2.getLastOffDelay(),24);
     }
 
     /*
@@ -90,7 +141,7 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D7_spendTime(){
-
+        assertEquals(daofdOneShot.spendTime(4), null);
     }
 
     /*
@@ -100,7 +151,7 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D8_getMethod(){
-
+        assertEquals(daofdOneShot.getMethod(), "getMethod");
     }
 
     /*
@@ -110,7 +161,10 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D9_getCurrentLapsTime(){
-
+        assertEquals(daofdOneShot.getCurrentLapsTime(), null);
+        daofdOneShot.nextAction();
+        daofdOneShot.nextAction();
+        assertEquals(daofdOneShot.getCurrentLapsTime(), 10);
     }
 
     /*
@@ -120,7 +174,7 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D10_getObject(){
-
+        assertEquals(daofdOneShot.getObject(), ost2);
     }
 
     /*
@@ -130,7 +184,9 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D11_compareTo(){
-
+        daofdOneShot.nextAction();
+        daofdOneShot.nextAction();
+        assertEquals(daofdOneShot.compareTo(daOneShot),-1);
     }
 
     /*
@@ -140,6 +196,9 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D12_nextWithNoFuturAction(){
+        daofdOneShot.next();
+        daofdOneShot.next();
+        assertEquals(daofdOneShot.next(),true);
 
     }
 
@@ -150,7 +209,7 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D13_nextWithFuturAction(){
-
+        assertEquals(daofdOneShot.next(),true);
     }
 
     /*
@@ -160,7 +219,7 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D14_hasNextWithOnActionHaveNextAndOffActionHaveNext(){
-
+        assertEquals(daofdOneShot.hasNext(),true);
     }
 
     /*
@@ -170,7 +229,8 @@ class DiscreteActionOnOffDependentTest {
      */
     @Test
     void DAD00D15_hasNextWithOnActionHaveNotNextAndOffActionHaveNext(){
-
+        daofdOneShot2.nextAction();
+        assertEquals(daofdOneShot2.hasNext(),true);
     }
 
     /*
@@ -180,7 +240,8 @@ class DiscreteActionOnOffDependentTest {
      */
     @Test
     void DAD00D16_hasNextWithOnActionHaveNextAndOffActionHaveNotNext(){
-
+        daofdOneShot.nextAction();
+        assertEquals(daofdOneShot.hasNext(),true);
     }
 
     /*
@@ -190,7 +251,9 @@ class DiscreteActionOnOffDependentTest {
      */
     @Test
     void DADAD00D17_hasNextWithOnActionHaveNotNextAndOffActionHaveNotNext(){
-
+        daofdOneShot.nextAction();
+        daofdOneShot.nextAction();
+        assertEquals(daofdOneShot.hasNext(),false);
     }
 
 

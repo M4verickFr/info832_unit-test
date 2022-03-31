@@ -1,17 +1,25 @@
 package test.discrete_behavior_simulator;
 
+import main.action.DiscreteAction;
+import main.discrete_behavior_simulator.DiscreteActionSimulator;
+import main.timer.OneShotTimer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class DiscreteActionSimulatorTest {
+    private DiscreteActionSimulator discreteActionSimulator;
 
     @BeforeEach
     void setUp() {
+        discreteActionSimulator = new DiscreteActionSimulator();
     }
 
     @AfterEach
     void tearDown() {
+        discreteActionSimulator = null;
     }
 
     /*
@@ -21,6 +29,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS1_DiscreteActionSimulatorForLoggerAttribute() {
+        // Attribute logger is private, cannot be accessed and tested
     }
 
     /*
@@ -30,6 +39,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS2_DiscreteActionSimulatorForLevelAttribute() {
+        // Attribute logger is private, cannot be accessed and tested
     }
 
     /*
@@ -39,6 +49,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS3_DiscreteActionSimulatorForsetUseParentHandlersAttribute() {
+        // Attribute logger is private, cannot be accessed and tested
     }
 
     /*
@@ -48,6 +59,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS4_DiscreteActionSimulatorForFileNameAttribute() {
+        // Attribute logFile is private, cannot be accessed and tested
     }
 
     /*
@@ -57,6 +69,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS5_DiscreteActionSimulator() {
+        // Attribute logFile is private, cannot be accessed and tested
     }
 
     /*
@@ -66,6 +79,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS6_DiscreteActionSimulator() {
+        // Attribute logConsole is private, cannot be accessed and tested
     }
 
     /*
@@ -75,6 +89,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS7_DiscreteActionSimulator() {
+        // Attribute logger is private, cannot be accessed and tested
     }
 
     /*
@@ -84,6 +99,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS8_DiscreteActionSimulator() {
+        // Attribute logger is private, cannot be accessed and tested
     }
 
     /*
@@ -93,6 +109,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS9_DiscreteActionSimulator() {
+        // Attribute globalTime is private, cannot be accessed and tested
     }
 
     /*
@@ -102,6 +119,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS10_DiscreteActionSimulator() {
+        // Attribute t is private, cannot be accessed and tested
     }
 
     /*
@@ -111,6 +129,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS11_setNbLoop() {
+        // Attributes nbLoop and step are private, cannot be accessed and tested
     }
 
     /*
@@ -120,6 +139,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS12_setNbLoop() {
+        // Attributes nbLoop and step are private, cannot be accessed and tested
     }
 
     /*
@@ -129,6 +149,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS13_setNbLoop() {
+        // Attributes nbLoop and step are private, cannot be accessed and tested
     }
 
     /*
@@ -138,6 +159,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS14_setNbLoop() {
+        // Attributes nbLoop and step are private, cannot be accessed and tested
     }
 
     /*
@@ -146,7 +168,21 @@ class DiscreteActionSimulatorTest {
     Résultat Attendu : Ajoute à la liste d’action la prochaine action de c
      */
     @Test
-    void DAS15_setNbLoop() {
+    void DAS15_setAddAction() {
+        assertEquals("------------------\nTestAuto :0---------------------\n", discreteActionSimulator.toString());
+
+        DiscreteAction discreteAction = new DiscreteAction(new Object(), "toString", new OneShotTimer(0));
+
+        discreteActionSimulator.addAction(discreteAction);
+
+        assertEquals("""
+                ------------------
+                TestAuto :1Object : java.lang.Object
+                 Method : toString
+                 Stat. : main.timer.OneShotTimer@62bd765
+                 delay: 0
+                ---------------------
+                """, discreteActionSimulator.toString());
     }
 
     /*
@@ -156,9 +192,58 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS21_testToString() {
+        assertEquals("------------------\nTestAuto :0---------------------\n", discreteActionSimulator.toString());
     }
 
+    /*
+    Entrée : getRunning()
+    Description : Test de getRunning sur une instance sur laquelle start() n'a jamais ete appele
+    Résultat Attendu : false
+     */
     @Test
-    void getRunning() {
+    void DAS22_testGetRunning() {
+        assertFalse(discreteActionSimulator.getRunning());
+    }
+
+    /*
+    Entrée : start()
+    Description : Test de start
+    Résultat Attendu : true
+     */
+    @Test
+    void DAS23_testStart() {
+        assertFalse(discreteActionSimulator.getRunning());
+
+        discreteActionSimulator.start();
+
+        assertTrue(discreteActionSimulator.getRunning());
+    }
+
+    /*
+    Entrée : stop()
+    Description : Test de stop sur une instance qui ne roule pas
+    Résultat Attendu : false
+     */
+    @Test
+    void DAS23_testStopNotStarted() {
+        discreteActionSimulator.stop();
+
+        assertFalse(discreteActionSimulator.getRunning());
+    }
+
+    /*
+    Entrée : run()
+    Description : Test de run
+    Résultat Attendu : getRunning retourne false a la fin de l'execution
+     */
+    @Test
+    void DAS24_testRun() {
+        discreteActionSimulator.start();
+
+        discreteActionSimulator.setNbLoop(3);
+
+        discreteActionSimulator.run();
+
+        assertFalse(discreteActionSimulator.getRunning());
     }
 }

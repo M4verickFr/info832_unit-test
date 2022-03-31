@@ -1,11 +1,11 @@
 package test.discrete_behavior_simulator;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 import main.discrete_behavior_simulator.Clock;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ClockTest {
     private Clock clock;

@@ -1,11 +1,12 @@
 package test.action;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import main.action.DiscreteActionDependent;
 import main.action.DiscreteActionInterface;
 import main.timer.OneShotTimer;
-import org.junit.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class DiscreteActionDependentTest {
     private OneShotTimer ost;
@@ -13,7 +14,7 @@ class DiscreteActionDependentTest {
     private DiscreteActionDependent dadOneShot;
     private DiscreteActionInterface dadOneShot2;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
         ost = new OneShotTimer(10);
         ost2 = new OneShotTimer(15);

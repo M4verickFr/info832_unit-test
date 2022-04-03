@@ -1,36 +1,52 @@
 package test.timer;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.TreeSet;
 import main.timer.DateTimer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.lang.reflect.Executable;
-import java.util.*;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class DateTimerTest {
+
+    DateTimer emptyDates;
+    DateTimer emptyLapsTime;
+    DateTimer dateTimerWithSet;
+    DateTimer dateTimerWithList;
+    Set<Integer> treeSet;
+    List<Integer> arrayList;
 
     @BeforeEach
     void setUp() {
 
         // Création d'un DateTimer avec un set d'entiers initialement vide (test des dates)
-        DateTimer emptyDates = new DateTimer(new TreeSet<>());
+        emptyDates = new DateTimer(new TreeSet<>());
 
         // Idem mais en testant les laps time
-        DateTimer emptyLapsTime = new DateTimer(new ArrayList<>());
+        emptyLapsTime = new DateTimer(new ArrayList<>());
 
         // On crée un TreeSet avec de bonnes valeurs
-        Set<Integer> treeSet = new TreeSet();
+        treeSet = new TreeSet();
         treeSet.add(1);
         treeSet.add(2);
         treeSet.add(3);
-        DateTimer dateTimerWithSet = new DateTimer(treeSet);
+        dateTimerWithSet = new DateTimer(treeSet);
 
         // De même avec une ArrayList
 
-        List<Integer> arrayList = new ArrayList<>();
+        arrayList = new ArrayList<>();
         arrayList.add(1);
         arrayList.add(2);
         arrayList.add(3);
-        DateTimer dateTimerWithList = new DateTimer(arrayList);
+        dateTimerWithList = new DateTimer(arrayList);
 
     }
 
@@ -144,7 +160,6 @@ Résultat Attendu : NoSuchElementException
     @Test
     void DT8() {
         assertThrows(NoSuchElementException.class, () -> emptyDates.next());
-
     }
 
     /*

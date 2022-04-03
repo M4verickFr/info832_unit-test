@@ -1,11 +1,16 @@
-package test.action;
+package teTruest.action;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import main.action.DiscreteAction;
 import main.action.DiscreteActionInterface;
 import main.timer.OneShotTimer;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class DiscreteActionTest {
     private OneShotTimer ost;
@@ -13,7 +18,7 @@ class DiscreteActionTest {
     private DiscreteAction daOneShot;
     private DiscreteActionInterface daOneShot2;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
         ost = new OneShotTimer(10);
         ost2 = new OneShotTimer(15);

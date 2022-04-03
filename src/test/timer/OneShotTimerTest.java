@@ -1,19 +1,23 @@
 package test.timer;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import main.timer.OneShotTimer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import main.timer.OneShotTimer;
-import static org.junit.jupiter.api.Assertions.*;
 
 class OneShotTimerTest {
 
-
+    OneShotTimer oneShotTimer1;
 
     @BeforeEach
     void setUp() {
         // Création d'un timer
         int value = 1;
-        OneShotTimer oneShotTimer1 = new OneShotTimer(value);
+        oneShotTimer1 = new OneShotTimer(value);
     }
 
     /*
@@ -36,7 +40,7 @@ Résultat Attendu : True
     @Test
     void OST2(){
         // Comme on n'a jamais utilisé notre timer on peut récupérer la valeur avec next()
-        assertEquals(value, oneShotTimer1.next());
+        assertEquals(true, oneShotTimer1.next());
     }
 
     /*

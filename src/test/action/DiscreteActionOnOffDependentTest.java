@@ -1,8 +1,14 @@
 package test.action;
 
-import main.action.DiscreteActionDependent;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.TreeSet;
+import jdk.jshell.spi.ExecutionControl.NotImplementedException;
+import main.action.DiscreteAction;
 import main.action.DiscreteActionInterface;
+import main.action.DiscreteActionOnOffDependent;
 import main.timer.OneShotTimer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class DiscreteActionOnOffDependentTest {
@@ -15,30 +21,30 @@ class DiscreteActionOnOffDependentTest {
     private DiscreteActionOnOffDependent daofdOneShot4;
     private DiscreteActionInterface daOneShot;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
         ost = new OneShotTimer(10);
         ost2 = new OneShotTimer(15);
         daOneShot = new DiscreteAction(ost, "hasNext", ost2);
         daofdOneShot = new DiscreteActionOnOffDependent(ost, "hasNext", ost, "getMethod", ost2);
         // Second Constructor : DatesOn < DateOff
-        TreeSet<Integer> datesOn=new TreeSet<Integer>();  
+        TreeSet<Integer> datesOn=new TreeSet<Integer>();
         datesOn.add(24);  
         TreeSet<Integer> datesOff=new TreeSet<Integer>();  
         datesOff.add(42);  
         daofdOneShot2 = new DiscreteActionOnOffDependent(ost, "hasNext", datesOn, "getMethod", datesOff);
 
         // Second Constructor : DatesOn < DateOff
-        TreeSet<Integer> datesOn=new TreeSet<Integer>();  
+        datesOn=new TreeSet<Integer>();
         datesOff.add(42);  
-        TreeSet<Integer> datesOff=new TreeSet<Integer>();  
+        datesOff=new TreeSet<Integer>();
         datesOn.add(24);  
         daofdOneShot3 = new DiscreteActionOnOffDependent(ost, "hasNext", datesOn, "getMethod", datesOff);
 
         // Second Constructor : DatesOn < DateOff
-        TreeSet<Integer> datesOn=new TreeSet<Integer>();  
+        datesOn=new TreeSet<Integer>();
         datesOn.add(24);  
-        TreeSet<Integer> datesOff=new TreeSet<Integer>();  
+        datesOff=new TreeSet<Integer>();
         datesOff.add(24);  
         daofdOneShot4 = new DiscreteActionOnOffDependent(ost, "hasNext", datesOn, "getMethod", datesOff);
     }
@@ -111,10 +117,10 @@ class DiscreteActionOnOffDependentTest {
     @Test
     void DAD00D5_nextActionWithCurrentActionDiffOnAction(){
         assertEquals(daofdOneShot.getCurrentLapsTime(),null);
-        assertEquals(daofdOneShot.currentAction(),ost2);
+        assertEquals(daofdOneShot.getObject(),ost2);
         daofdOneShot.nextAction();
         assertEquals(daofdOneShot.getCurrentLapsTime(),0);
-        assertEquals(daofdOneShot.currentAction(),ost);
+        assertEquals(daofdOneShot.getObject(),ost);
 
     }
 
@@ -125,11 +131,13 @@ class DiscreteActionOnOffDependentTest {
     */
     @Test
     void DAD00D6_nextActionWithCurrentActionEqualsOnAction(){
+
+
         assertEquals(daofdOneShot2.getCurrentLapsTime(),null);
-        assertEquals(daofdOneShot2.currentAction(),ost);
+        assertEquals(daofdOneShot2.getObject(),ost);
         daofdOneShot.nextAction();
         assertEquals(daofdOneShot2.getCurrentLapsTime(),24);
-        assertEquals(daofdOneShot2.currentAction(),ost2);
+        assertEquals(daofdOneShot2.getObject(),ost2);
         // Aucune possibilité de récupérer daofdOneShot.lastOffDelay
         // assertEquals(daofdOneShot2.getLastOffDelay(),24);
     }
@@ -140,8 +148,9 @@ class DiscreteActionOnOffDependentTest {
         Résultat Attendu : Retourne void
     */
     @Test
-    void DAD00D7_spendTime(){
-        assertEquals(daofdOneShot.spendTime(4), null);
+    void DAD00D7_spendTime() throws NotImplementedException {
+        // TODO
+        // assertEquals(daofdOneShot.spendTime(4), void);
     }
 
     /*

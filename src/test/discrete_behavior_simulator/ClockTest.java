@@ -1,6 +1,6 @@
 package test.discrete_behavior_simulator;
 
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.*;
 
 import main.discrete_behavior_simulator.Clock;
 import org.junit.jupiter.api.AfterEach;

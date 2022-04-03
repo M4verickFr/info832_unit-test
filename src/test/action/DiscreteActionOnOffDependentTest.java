@@ -62,7 +62,6 @@ class DiscreteActionOnOffDependentTest {
         // assertEquals(daofdOneShot.onAction.getObject(), ost);
         // assertEquals(daofdOneShot.offAction.getObject(), ost);
         assertEquals(daofdOneShot.getObject(), ost2);
-
     }
 
     /*
@@ -83,7 +82,6 @@ class DiscreteActionOnOffDependentTest {
         Entrée : DiscreteActionOnOffDependent(obj, on, datesOn, off, datesOff)
         Description : Test du deuxième constructeur avec la première date de datesOn postérieur à la première date de datesOff
         Résultat Attendu : Objet créé avec un objet DiscreteAction(obj,on, new DateTimer(datesOn)) stocké dans la variable onAction, un second objet similaire DiscreteAction(obj,on, new DateTimer(datesOn)) stocké dans la variable offAction currentAction prend la valeur de offAction
-
     */
 
     @Test
@@ -121,7 +119,6 @@ class DiscreteActionOnOffDependentTest {
         daofdOneShot.nextAction();
         assertEquals(daofdOneShot.getCurrentLapsTime(),0);
         assertEquals(daofdOneShot.getObject(),ost);
-
     }
 
     /*
@@ -264,11 +261,4 @@ class DiscreteActionOnOffDependentTest {
         daofdOneShot.nextAction();
         assertEquals(daofdOneShot.hasNext(),false);
     }
-
-
-
-
-
-
-
 }

@@ -1,12 +1,12 @@
 package test.action;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import main.action.DiscreteActionDependent;
 import main.action.DiscreteActionInterface;
 import main.timer.OneShotTimer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class DiscreteActionDependentTest {
     private OneShotTimer ost;
@@ -140,7 +140,7 @@ class DiscreteActionDependentTest {
      */
     @Test
     void DAD11_isEmpty() {
-        assertEquals(dadOneShot.isEmpty(),true);
+        assertTrue(dadOneShot.isEmpty());
     }
 
     /*
@@ -151,7 +151,7 @@ class DiscreteActionDependentTest {
     @Test
     void DAD12_hasNextWithBaseActionHasNextAndDependentActionsNotEmpty() {
         dadOneShot.addDependence(ost2, "hasNext", ost2);
-        assertEquals(dadOneShot.hasNext(),true);
+        assertTrue(dadOneShot.hasNext());
     }
 
     /*
@@ -173,7 +173,7 @@ class DiscreteActionDependentTest {
     void DAD14_hasNextWithBaseActionNotHasNextAndDependentActionsNotEmpty() {
         dadOneShot.addDependence(ost2, "hasNext", ost2);
         dadOneShot.next();
-        assertEquals(dadOneShot.hasNext(),true);
+        assertTrue(dadOneShot.hasNext());
     }
 
     /*
@@ -184,7 +184,7 @@ class DiscreteActionDependentTest {
     @Test
     void DAD15_hasNextWithBaseActionNotHasNextAndDependentActionsEmpty() {
         dadOneShot.next();
-        assertEquals(dadOneShot.hasNext(),false);
+        assertFalse(dadOneShot.hasNext());
     }
 
 

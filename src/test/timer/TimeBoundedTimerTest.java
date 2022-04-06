@@ -45,7 +45,7 @@ class TimeBoundedTimerTest {
     /*
        Entrée : OneShotTimer(1)
        Description : Test du OneShotTimer avec une next value plus petite que le temps de départ
-       Résultat Attendu : NullPointerException
+       Résultat Attendu : True
     */
     @Test
     void TBT2() {
@@ -79,7 +79,7 @@ class TimeBoundedTimerTest {
     */
     @Test
     void TBT5() {
-        assertFalse(timeBoundedTimer1.hasNext());
+        assertTrue(timeBoundedTimer1.hasNext());
     }
 
     /*
@@ -114,8 +114,8 @@ class TimeBoundedTimerTest {
 
     /*
         Entrée : dummyTimer.next(), timeBoundedTimer2.next()
-        Description : Test obtention de la next value du petit timer
-        Résultat Attendu : True
+        Description : Test obtention de la next value du dummy timer
+        Résultat Attendu : False
     */
     @Test
     void TBT9() {
@@ -124,12 +124,12 @@ class TimeBoundedTimerTest {
 
     /*
         Entrée : TimeBoundedTimer(dummyTimer, startTime, stopTime)
-        Description : Test de hasNext et de next, on doit obtenir le start time en tant que 1ere valeur car la valeur du petit timer < start timer
-        Résultat Attendu : True, True
+        Description : Test de hasNext et de next
+        Résultat Attendu : False, False
     */
     @Test
     void TBT10() {
-        assertTrue(timeBoundedTimer3.hasNext());
+        assertFalse(timeBoundedTimer3.hasNext());
         assertEquals(startTime, timeBoundedTimer3.next());
     }
 

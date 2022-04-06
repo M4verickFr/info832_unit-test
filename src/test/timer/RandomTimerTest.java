@@ -81,7 +81,7 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.EXP, param)
         Description : Test du rate
-        Résultat Attendu : False
+        Résultat Attendu : "Not yet implemented"
      */
     @Test
     void RT1() {
@@ -102,21 +102,17 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.GAUSSIAN, limitInferior,limitSuperior)
         Description : Teste d'un Random Timer avec une loi Gaussienne
-        Résultat Attendu : True
+        Résultat Attendu : "Not yet implemented"
     */
     @Test
     void RT3() {
-
-
         assertEquals("Inferior limit: " + randomTimerGAUSSIAN.getLimitInferior() + " Superior limit: " + randomTimerGAUSSIAN.getLimitSuperior(), randomTimerGAUSSIAN.getDistributionParam());
-
-
     }
 
     /*
         Entrée :  RandomTimer(RandomDistribution.UNIFORM, limitInferior,limitSuperior)
         Description : Teste d'un Random Timer avec une loi Uniforme
-        Résultat Attendu : True
+        Résultat Attendu : "Not yet implemented"
     */
     @Test
     void RT4() {
@@ -202,7 +198,7 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.UNIFORM, 1, -1)
         Description : Test limite inférieure > limite supérieure loi Uniforme
-        Résultat Attendu : IncorrectDistributionException
+        Résultat Attendu : Exception to be thrown, but nothing was thrown.
     */
     @Test
     void RT11() {
@@ -213,7 +209,7 @@ class RandomTimerTest {
         Entrée : RandomTimer(RandomDistribution.EXP, param)
         Description : Test du fonctionnement de la distribution exponentielle, on simule 100000 expériences et on les compare à la moyenne (mean) avec un intervaale d'erreur de 1%
         On teste en même temps si la nextValue est entre inferiorLimit et superiorLimit
-        Résultat Attendu : True, True
+        Résultat Attendu : Not yet implemented
     */
     @Test
     void RT12() {
@@ -233,7 +229,7 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.POISSON, param)
         Description : Idem avec une distribution de Poisson
-        Résultat Attendu : True, True
+        Résultat Attendu : Not yet implemented
     */
     @Test
     void RT13() {
@@ -250,7 +246,7 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.GAUSSIAN, limitInferior, limitSuperior)
         Description : Idem avec une distribution normale (on n'effectue pas la comparaison car elle n'a aucun sens sur une loi normale, on compare des infinis)
-        Résultat Attendu : True
+        Résultat Attendu : "Not yet implemented"
     */
     @Test
     void RT14() {
@@ -268,7 +264,7 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.UNIFORM, limitInferior,limitSuperior)
         Description : Idem avec une loi Uniforme
-        Résultat Attendu : True
+        Résultat Attendu : "Not yet implemented"
     */
     @Test
     void RT15() {
@@ -286,7 +282,7 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.EXP, param)
         Description : Test de la méthode ToString sur une loi exponentielle
-        Résultat Attendu : True
+        Résultat Attendu : "Not yet implemented"
     */
     @Test
     void RT16() {
@@ -312,7 +308,7 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.GAUSSIAN, limitInferior,limitSuperior)
         Description : Test de la méthode ToString sur une loi normale
-        Résultat Attendu :True
+        Résultat Attendu : "Not yet implemented"
     */
     @Test
     void RT18() {
@@ -322,7 +318,7 @@ class RandomTimerTest {
     /*
         Entrée : RandomTimer(RandomDistribution.UNIFORM, limitInferior,limitSuperior)
         Description : Test de la méthode ToString sur une loi uniforme
-        Résultat Attendu : True
+        Résultat Attendu : "Not yet implemented"
     */
     @Test
     void RT19() {

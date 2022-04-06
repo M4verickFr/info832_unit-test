@@ -36,8 +36,7 @@ class OneShotTimerTest {
     @Test
     void OST2_nextWithNewTimer(){
 
-        // TODO : je vois pas pourquoi on récupère "1"
-        // assertEquals(1, oneShotTimer.next());
+        assertEquals(1, oneShotTimer.next());
     }
 
     /*

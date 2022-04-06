@@ -34,7 +34,7 @@ class PeriodicTimerTest {
 
         nextValue = 1;
         periodicTimer1 = new PeriodicTimer(nextValue);
-        periodValue = 2;
+        periodValue = 1;
         periodicTimer2 = new PeriodicTimer(periodValue, nextValue);
 
         randomTimer = new RandomTimer(randomDistribution.POSIBILIST, 1, 1);

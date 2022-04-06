@@ -1,7 +1,7 @@
 # info832_unit-test
 ## Sonarcloud report
 
-To generate sonarcloud report we have connected our projet to sonar cloud.
+To generate sonarcloud report, we have connected our project to sonar cloud.
 And we have used [Bitegarden Report Generation](https://www.bitegarden.com/sonarcloud-report) to generate report.
 
 ### How generate report ?
@@ -23,3 +23,8 @@ To get help with *bitegarden-sonarcloud-report.jar* and see other report type, u
 ```sh 
 java -jar bitegarden-sonarcloud-report.jar --help
 ```
+
+## Troubleshooting
+
+The *bitegarden-sonarcloud-report.jar* file contains a license available only 14 days.
+You can download a new version on the official website  [here](https://www.bitegarden.com/sonarcloud-report)

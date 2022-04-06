@@ -23,7 +23,8 @@ public class RandomTimer implements Timer {
 	private double rate;
 	private double mean;
 	private double lolim;
-	private double hilim; 
+	private double hilim;
+
 
 	
 	public static randomDistribution string2Distribution(String distributionName){
@@ -166,7 +167,21 @@ public class RandomTimer implements Timer {
 	private int nextTimeGaussian(){
 		return (int)this.lolim + (int)((this.r.nextGaussian() + 1.0)/2.0 * (this.hilim - this.lolim));
 	}
-	
+
+	public double getRate() {
+		// TODO: implement me!
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
+
+	public double getLimitInferior() {
+		// TODO: implement me!
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
+
+	public double getLimitSuperior() {
+		// TODO: implement me!
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
 	
 	@Override
 	public boolean hasNext() {

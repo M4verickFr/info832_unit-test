@@ -33,14 +33,14 @@ Résultat Attendu : True
     }
 
     /*
-Entrée : assertEquals(value, oneShotTimer1.next())
-Description : Test de next sur un timer qui n’a jamais été utilisé
+Entrée : assertEquals(value, oneShotTimer1.hasNext())
+Description : Test de hasNext sur un timer qui n’a jamais été utilisé
 Résultat Attendu : True
  */
     @Test
     void OST2(){
-        // Comme on n'a jamais utilisé notre timer on peut récupérer la valeur avec next()
-        assertEquals(true, oneShotTimer1.next());
+        // Comme on n'a jamais utilisé notre timer il existe une valeur suivante
+        assertEquals(true, oneShotTimer1.hasNext());
     }
 
     /*
@@ -66,17 +66,6 @@ Résultat Attendu : Null
         // De manière analogue, la valeur est null lorsqu'on essaye de la récupérer
         assertNull(oneShotTimer1.next());
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

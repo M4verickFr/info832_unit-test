@@ -47,17 +47,18 @@ class OneShotTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void OST3_hasNext(){
-        assertTrue(oneShotTimer.hasNext());
+    void OST3_hasNextWithSecondeTimeUtilisation(){
+        // TODO : @Zied
+        assertFalse(oneShotTimer.hasNext());
     }
 
     /*
         Entrée :oneShotTimer.next()
-        Description : Test de next sur un timer qui n’a jamais été utilisé
+        Description : Test de next sur un timer qui a été utilisé une première fois
         Résultat Attendu : Null
     */
     @Test
-    void OST4(){
+    void OST4_nextWithSecondeTimeUtilisation(){
         oneShotTimer.next();
         assertNull(oneShotTimer.next());
     }

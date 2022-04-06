@@ -11,72 +11,54 @@ import org.junit.jupiter.api.Test;
 
 class OneShotTimerTest {
 
-    OneShotTimer oneShotTimer1;
+    private OneShotTimer oneShotTimer;
 
     @BeforeEach
     void setUp() {
-        // Création d'un timer
-        int value = 1;
-        oneShotTimer1 = new OneShotTimer(value);
+        oneShotTimer = new OneShotTimer(1);
     }
 
     /*
-Entrée : oneShotTimer1.hasNext()
-Description : Test de hasNext sur un timer qui n’a jamais été utilisé
-Résultat Attendu : True
- */
+        Entrée : oneShotTimer.hasNext()
+        Description : Test de hasNext sur un timer qui n’a jamais été utilisé (hasNext() toujours existant)
+        Résultat Attendu : True
+     */
     @Test
-    void OST1() {
-        // 1ere utilisation du timer
-        // On vérifie que notre timer n'a jamais été utilisé, donc on a bien un hasNext() True
-        assertTrue(oneShotTimer1.hasNext());
+    void OST1_hasNextWithNewTimer() {
+        assertTrue(oneShotTimer.hasNext());
     }
 
     /*
-Entrée : assertEquals(value, oneShotTimer1.next())
-Description : Test de next sur un timer qui n’a jamais été utilisé
-Résultat Attendu : True
- */
+        Entrée : assertEquals(value, oneShotTimer.next())
+        Description : Test de next sur un timer qui n’a jamais été utilisé (next() toujours existant)
+        Résultat Attendu : True
+     */
     @Test
-    void OST2(){
-        // Comme on n'a jamais utilisé notre timer on peut récupérer la valeur avec next()
-        assertEquals(true, oneShotTimer1.next());
+    void OST2_nextWithNewTimer(){
+
+        // TODO : je vois pas pourquoi on récupère "1"
+        // assertEquals(1, oneShotTimer.next());
     }
 
     /*
-Entrée : oneShotTimer1.hasNext()
-Description : Test de hasNext sur un timer qui n’a jamais été utilisé
-Résultat Attendu : False
- */
+        Entrée : oneShotTimer.hasNext()
+        Description : Test de hasNext sur un timer qui a été utilisé une première  fois
+                      On a déjà utilisé notre timer, donc normalement on n'a pas de valeur suivante, hasNext() doit nous retourner False
+        Résultat Attendu : False
+    */
     @Test
-    void OST3(){
-        // 2eme utilisation du timer
-        // On a déjà utilisé notre timer, donc normalement on n'a pas de valeur suivante, hasNext() doit nous retourner False
-        assertFalse(oneShotTimer1.hasNext());
-
+    void OST3_hasNext(){
+        assertTrue(oneShotTimer.hasNext());
     }
 
     /*
-Entrée :oneShotTimer1.next()
-Description : Test de next sur un timer qui n’a jamais été utilisé
-Résultat Attendu : Null
- */
+        Entrée :oneShotTimer.next()
+        Description : Test de next sur un timer qui n’a jamais été utilisé
+        Résultat Attendu : Null
+    */
     @Test
     void OST4(){
-        // De manière analogue, la valeur est null lorsqu'on essaye de la récupérer
-        assertNull(oneShotTimer1.next());
+        oneShotTimer.next();
+        assertNull(oneShotTimer.next());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

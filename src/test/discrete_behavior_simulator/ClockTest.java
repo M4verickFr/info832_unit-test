@@ -16,10 +16,6 @@ class ClockTest {
 
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /*
     Entrée : getInstanceWithoutAttributeNull()
     Description : Test de getInstance() avec un attribut instance différent de null
@@ -96,6 +92,7 @@ class ClockTest {
      */
     @Test
     void C8_setNextJump() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -105,6 +102,7 @@ class ClockTest {
     */
     @Test
     void C9_increaseTimeEqualNextJump() {
+        //TODO @fred & @Clément
     }
     /*
     Entrée : increaseTimeDifferentNextJump(5)
@@ -113,6 +111,7 @@ class ClockTest {
      */
     @Test
     void C10_increaseTimeDifferentNextJump() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -122,6 +121,7 @@ class ClockTest {
      */
     @Test
     void C11_getTimeWithVirtualTrue() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -131,6 +131,7 @@ class ClockTest {
      */
     @Test
     void C12_getTimeWithVirtualFalse() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -140,6 +141,7 @@ class ClockTest {
      */
     @Test
     void C13_lockReadAccess() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -149,6 +151,7 @@ class ClockTest {
      */
     @Test
     void C14_unlockReadAccess() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -158,6 +161,7 @@ class ClockTest {
      */
     @Test
     void C15_lockWriteAccess() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -167,6 +171,7 @@ class ClockTest {
      */
     @Test
     void C16_unlockWriteAccess() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -176,6 +181,7 @@ class ClockTest {
      */
     @Test
     void C17_toString() {
+        //TODO @fred & @Clément
     }
 
     /*
@@ -185,6 +191,7 @@ class ClockTest {
      */
     @Test
     void C18_ClockForTimeAttribute(){
+        //TODO @fred & @Clément
     }
 
     /*
@@ -194,6 +201,7 @@ class ClockTest {
      */
     @Test
     void C19_ClockForNextJumpAttribute(){
+        //TODO @fred & @Clément
     }
 
     /*
@@ -203,6 +211,7 @@ class ClockTest {
      */
     @Test
     void C20_ClockForLockAttribute(){
+        //TODO @fred & @Clément
     }
 
     /*
@@ -212,6 +221,7 @@ class ClockTest {
      */
     @Test
     void C21_ClockForVirtualAttribute(){
+        //TODO @fred & @Clément
     }
 
     /*
@@ -221,5 +231,6 @@ class ClockTest {
      */
     @Test
     void C22_ClockForObserversAttribute(){
+        //TODO @fred & @Clément
     }
 }

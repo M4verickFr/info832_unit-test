@@ -1,4 +1,4 @@
-package teTruest.action;
+package test.action;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -227,6 +227,8 @@ class DiscreteActionTest {
      */
     @Test
     void DA18_spendTimeWithParamSupLapsTime() {
+        //TODO @Célien
+
         assertThrows(Exception.class, () -> {
             daOneShot.next();
             daOneShot.spendTime(50);
@@ -240,6 +242,8 @@ class DiscreteActionTest {
      */
     @Test
     void DA19_spendTimeWithParamEqu0() {
+        //TODO @Célien
+
         assertThrows(Exception.class, () -> {
             daOneShot.next();
             daOneShot.spendTime(-50);

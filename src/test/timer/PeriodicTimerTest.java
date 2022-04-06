@@ -21,11 +21,14 @@ class PeriodicTimerTest {
     private PeriodicTimer periodicTimerWithRandomTimer;
 
 
+
     @BeforeEach
     void setUp() throws UnexpectedTimerConstructorException {
         periodicTimer1 = new PeriodicTimer(1);
         periodicTimer2 = new PeriodicTimer(1, 1);
-        randomTimer = null;
+
+        randomTimer = new RandomTimer(randomDistribution.EXP, 1.0);
+
         periodicTimer3 = new PeriodicTimer(1, randomTimer);
         periodicTimer4 = new PeriodicTimer(1, 1, randomTimer);
 
@@ -43,7 +46,6 @@ class PeriodicTimerTest {
         periodicTimer1 = new PeriodicTimer(1);
 
         periodicTimer2 = new PeriodicTimer(1, 1);
-        randomTimer = null;
         periodicTimer3 = new PeriodicTimer(1, randomTimer);
         periodicTimer4 = new PeriodicTimer(1, 1, randomTimer);
     }

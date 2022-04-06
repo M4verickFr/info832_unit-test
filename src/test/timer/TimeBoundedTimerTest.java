@@ -1,10 +1,14 @@
 package test.timer;
 
+import main.exceptions.UnexpectedTimerConstructorException;
 import main.timer.OneShotTimer;
+import main.timer.RandomTimer;
 import main.timer.TimeBoundedTimer;
 import main.timer.Timer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,19 +21,19 @@ class TimeBoundedTimerTest {
     private int startTime;
     private int stopTime;
 
-    private Timer dummyTimer;
+    private RandomTimer dummyTimer;
 
     private TimeBoundedTimer timeBoundedTimer2;
     private TimeBoundedTimer timeBoundedTimer3;
 
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws UnexpectedTimerConstructorException {
 
         oneShotTimerPriorStartTime = new OneShotTimer(1);
         oneShotTimer1 = new OneShotTimer(10);
         timeBoundedTimer1 = new TimeBoundedTimer(oneShotTimer1, 5);
-
+        dummyTimer = new RandomTimer(RandomTimer.randomDistribution.EXP, 1.0);
         startTime = 3;
         timeBoundedTimer2 = new TimeBoundedTimer(dummyTimer, startTime);
         stopTime = 5;
@@ -86,7 +90,6 @@ class TimeBoundedTimerTest {
     @Test
     void TBT6() {
         assertThrows(NullPointerException.class, () -> timeBoundedTimer1.next());
-
     }
 
     /*

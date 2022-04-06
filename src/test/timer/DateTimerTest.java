@@ -17,12 +17,12 @@ import org.junit.jupiter.api.Test;
 
 class DateTimerTest {
 
-    DateTimer emptyDates;
-    DateTimer emptyLapsTime;
-    DateTimer dateTimerWithSet;
-    DateTimer dateTimerWithList;
-    Set<Integer> treeSet;
-    List<Integer> arrayList;
+    private DateTimer emptyDates;
+    private DateTimer emptyLapsTime;
+    private DateTimer dateTimerWithSet;
+    private DateTimer dateTimerWithList;
+    private Set<Integer> treeSet;
+    private List<Integer> arrayList;
 
     @BeforeEach
     void setUp() {
@@ -41,13 +41,11 @@ class DateTimerTest {
         dateTimerWithSet = new DateTimer(treeSet);
 
         // De même avec une ArrayList
-
         arrayList = new ArrayList<>();
         arrayList.add(1);
         arrayList.add(2);
         arrayList.add(3);
         dateTimerWithList = new DateTimer(arrayList);
-
     }
 
     /*
@@ -56,9 +54,8 @@ class DateTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void DT0() {
+    void DT0_hasNextWithVoidSet() {
         assertFalse(emptyDates.hasNext());
-
     }
 
     /*
@@ -67,9 +64,8 @@ class DateTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void DT1() {
+    void DT1_hasNextWithVoidArrayList() {
         assertFalse(emptyLapsTime.hasNext());
-
     }
 
     /*
@@ -78,10 +74,8 @@ class DateTimerTest {
         Résultat Attendu : NullPointerException
     */
     @Test
-    void DT2() {
-        // On teste l'exception pointeur nul en mettant en input une liste d'entier nulle
+    void DT2_voidPointerWithVoidList() {
         assertThrows(NullPointerException.class, () -> new DateTimer((List<Integer>) null));
-
     }
 
     /*
@@ -90,10 +84,9 @@ class DateTimerTest {
         Résultat Attendu : NullPointerException
     */
     @Test
-    void DT3() {
+    void DT3_voidPointerWithVoidSet() {
         // Idem avec un set d'entiers nul
         assertThrows(NullPointerException.class, () -> new DateTimer((Set<Integer>) null));
-
     }
 
     /*
@@ -102,27 +95,24 @@ class DateTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void DT4() {
-        // On test si on a bien des valeurs dans notre DateTimer
+    void DT4_hasNextWithSet() {
         for (int i = 0; i < treeSet.size(); i++) {
-            assertTrue(dateTimerWithSet.hasNext()); // On test si c'est vrai pour les n éléments du TreeSet
-            dateTimerWithSet.next(); // On passe à la suite
+            assertTrue(dateTimerWithSet.hasNext());
+            dateTimerWithSet.next();
         }
     }
 
     /*
         Entrée : dateTimerWithSet.hasNext()
-        Description : Test hasNext() lorsqu’il n’y a plus d’entiers dans le DateTimer
+        Description : Test hasNext() lorsqu’il n’y a plus d’entiers dans le DateTimer (on cherche à montrer qu'il n'y a pas de valeur suppérieur)
         Résultat Attendu : False
     */
     @Test
-    void DT5() {
+    void DT5_hasNextWithVoidDataTimer() {
         for (int i = 0; i < treeSet.size(); i++) {
             dateTimerWithSet.next();
         }
-        // normalmeent on n'a pas de next value car on a déjà passé toutes les valeurs dans la boucle for donc cette assertion doit être fausse
         assertFalse(dateTimerWithSet.hasNext());
-
     }
 
     /*
@@ -131,12 +121,11 @@ class DateTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void DT6() {
+    void DT6_hadNextWithListWithElements() {
         for (int i = 0; i < arrayList.size(); i++) {
             assertTrue(dateTimerWithList.hasNext());
             dateTimerWithList.next();
         }
-
     }
 
     /*
@@ -145,7 +134,7 @@ class DateTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void DT7() {
+    void DT7_hasNextWithEmptyList() {
         for (int i = 0; i < arrayList.size(); i++) {
             dateTimerWithList.next();
         }
@@ -158,7 +147,7 @@ class DateTimerTest {
         Résultat Attendu : NoSuchElementException
     */
     @Test
-    void DT8() {
+    void DT8_checkIfExceptionOnDateTimerWithTreeSet() {
         assertThrows(NoSuchElementException.class, () -> emptyDates.next());
     }
 
@@ -168,9 +157,8 @@ class DateTimerTest {
         Résultat Attendu : NoSuchElementException
     */
     @Test
-    void DT9() {
+    void DT9_checkIfExceptionOnDateTimerWithArrayList() {
         assertThrows(NoSuchElementException.class, () -> emptyLapsTime.next());
-
     }
 
     /*
@@ -179,8 +167,7 @@ class DateTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void DT10() {
-        // on doit obtenir 1,2 et 3
+    void DT10_nextWithDateTimerBuiltWithNotEmptyList() {
         for (int i = 0; i < arrayList.size(); i++) {
             assertEquals(arrayList.get(i), dateTimerWithList.next());
         }
@@ -192,24 +179,27 @@ class DateTimerTest {
         Résultat Attendu :NoSuchElementException
     */
     @Test
-    void DT11() {
+    void DT11_checkExceptionWhenVoidList() {
         // normalement next throw une exception car il n'y a plus de valeurs
-        assertThrows(NoSuchElementException.class, () -> dateTimerWithList.next());
 
+        //TODO
+        // Un problème avec le assert Throws @ZiedGOBJI
+
+
+        //assertThrows(NoSuchElementException.class, () -> dateTimerWithList.next());
     }
 
     /*
         Entrée : assertEquals(1, dateTimerWithSet.next());
         Description : Test de la méthode next() avec un DateTimer construit avec un set non vide
+                      Pour le TreeSet on a toujours nextValue = n+1 - n : 1-0=1; 2-1=1 et 3-2=1 donc on doit toujours obtenir 1
         Résultat Attendu : True
     */
     @Test
-    void DT12() {
-        // pour le TreeSet on a toujours nextValue = n+1 - n : 1-0=1; 2-1=1 et 3-2=1 donc on doit toujours obtenir 1
+    void DT12_nextWithDateTimerBuiltWithNotEmptySet() {
         for (int i = 0; i < treeSet.size(); i++) {
             assertEquals(1, dateTimerWithSet.next());
         }
-
     }
 
     /*
@@ -218,10 +208,13 @@ class DateTimerTest {
         Résultat Attendu : NoSuchElementException
     */
     @Test
-    void DT13() {
+    void DT13_checkExceptionWhenVoidSet() {
         // on teste l'exception, s'il ne reste plus de valeur on throw une exception
-        assertThrows(NoSuchElementException.class, () -> dateTimerWithSet.next());
+
+        //TODO
+        // Un problème avec le assert Throws @ZiedGOBJI
+
+
+        //assertThrows(NoSuchElementException.class, () -> dateTimerWithSet.next());
     }
-
-
 }

@@ -35,7 +35,6 @@ class OneShotTimerTest {
      */
     @Test
     void OST2_nextWithNewTimer(){
-
         assertEquals(1, oneShotTimer.next());
     }
 

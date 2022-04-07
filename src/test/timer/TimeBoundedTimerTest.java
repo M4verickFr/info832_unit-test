@@ -16,20 +16,18 @@ class TimeBoundedTimerTest {
 
     private OneShotTimer oneShotTimerPriorStartTime;
     private OneShotTimer oneShotTimer1;
-    private TimeBoundedTimer timeBoundedTimer1;
 
     private int startTime;
     private int stopTime;
 
     private RandomTimer dummyTimer;
 
+    private TimeBoundedTimer timeBoundedTimer1;
     private TimeBoundedTimer timeBoundedTimer2;
     private TimeBoundedTimer timeBoundedTimer3;
 
-
     @BeforeEach
     void setUp() throws UnexpectedTimerConstructorException {
-
         oneShotTimerPriorStartTime = new OneShotTimer(1);
         oneShotTimer1 = new OneShotTimer(10);
         timeBoundedTimer1 = new TimeBoundedTimer(oneShotTimer1, 5);
@@ -38,9 +36,13 @@ class TimeBoundedTimerTest {
         timeBoundedTimer2 = new TimeBoundedTimer(dummyTimer, startTime);
         stopTime = 5;
         timeBoundedTimer3 = new TimeBoundedTimer(dummyTimer, startTime, stopTime);
-
     }
 
+    @Test
+    void TBT1_oneShotTimerWithNextInfInitialValue(){
+        //TODO @Zied
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 
     /*
        Entrée : OneShotTimer(1)
@@ -48,7 +50,7 @@ class TimeBoundedTimerTest {
        Résultat Attendu : True
     */
     @Test
-    void TBT2() {
+    void TBT2_() {
         assertThrows(NullPointerException.class, () -> new TimeBoundedTimer(oneShotTimerPriorStartTime, 2));
     }
 

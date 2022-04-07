@@ -20,8 +20,6 @@ class PeriodicTimerTest {
     private int periodValue;
     private PeriodicTimer periodicTimerWithRandomTimer;
 
-
-
     @BeforeEach
     void setUp() throws UnexpectedTimerConstructorException {
         periodicTimer1 = new PeriodicTimer(1);
@@ -129,7 +127,6 @@ class PeriodicTimerTest {
     */
     @Test
     void PT8() {
-
         assertEquals(nextValue, periodicTimerWithRandomTimer.next());
         assertEquals(periodValue, periodicTimerWithRandomTimer.next());
 
@@ -163,7 +160,6 @@ class PeriodicTimerTest {
     @Test
     void PT11() {
         assertTrue(periodicTimer3.hasNext());
-
     }
 
     /*

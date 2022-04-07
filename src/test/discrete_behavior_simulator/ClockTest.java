@@ -17,15 +17,10 @@ class ClockTest {
     private ReentrantReadWriteLock lock;
 
 
-
-
-
     @BeforeEach
     void setUp() {
         this.clock = Clock.getInstance();
         this.time = time;
-
-
     }
 
     /*
@@ -48,6 +43,7 @@ class ClockTest {
      */
     @Test
     void C3_addObserver() {
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -58,6 +54,7 @@ class ClockTest {
      */
     @Test
     void C4_removeObserver() {
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -102,6 +99,7 @@ class ClockTest {
      */
     @Test
     void C8_setNextJump() {
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -112,6 +110,7 @@ class ClockTest {
     */
     @Test
     void C9_increaseTimeEqualNextJump() {
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
     /*
@@ -125,7 +124,6 @@ class ClockTest {
             int time = 5;
             this.clock.setNextJump(1);
             this.clock.increase(time);
-
         }catch (UnexpectedTimeChangeException e) {
             e.printStackTrace();
         } ;
@@ -138,7 +136,6 @@ class ClockTest {
      */
     @Test
     void C11_getTimeWithVirtualTrue() {
-        int time;
         this.clock.setVirtual(true);
         assertEquals(this.clock.getTime(),this.time);
     }
@@ -162,6 +159,7 @@ class ClockTest {
      */
     @Test
     void C13_lockReadAccess() {
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -172,6 +170,7 @@ class ClockTest {
      */
     @Test
     void C14_unlockReadAccess() {
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -182,6 +181,7 @@ class ClockTest {
      */
     @Test
     void C15_lockWriteAccess() {
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -192,6 +192,7 @@ class ClockTest {
      */
     @Test
     void C16_unlockWriteAccess() {
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -224,6 +225,7 @@ class ClockTest {
      */
     @Test
     void C19_ClockForNextJumpAttribute(){
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -234,6 +236,7 @@ class ClockTest {
      */
     @Test
     void C20_ClockForLockAttribute(){
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -255,6 +258,7 @@ class ClockTest {
      */
     @Test
     void C22_ClockForObserversAttribute(){
+        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
 
     }

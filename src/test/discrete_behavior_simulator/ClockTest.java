@@ -1,18 +1,30 @@
 package test.discrete_behavior_simulator;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import main.discrete_behavior_simulator.Clock;
+import main.exceptions.UnexpectedTimeChangeException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 class ClockTest {
     private Clock clock;
+    private int time;
+    private ReentrantReadWriteLock lock;
+
+
+
+
 
     @BeforeEach
     void setUp() {
         this.clock = Clock.getInstance();
+        this.time = time;
+
 
     }
 
@@ -37,7 +49,6 @@ class ClockTest {
     @Test
     void C3_addObserver() {
         throw new UnsupportedOperationException("Not yet implemented");
-        //Aucun accès à la liste d'observers
     }
 
     /*
@@ -48,7 +59,6 @@ class ClockTest {
     @Test
     void C4_removeObserver() {
         throw new UnsupportedOperationException("Not yet implemented");
-        //Aucun accès à la liste d'observers
     }
 
     /*
@@ -92,7 +102,6 @@ class ClockTest {
      */
     @Test
     void C8_setNextJump() {
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -103,7 +112,6 @@ class ClockTest {
     */
     @Test
     void C9_increaseTimeEqualNextJump() {
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
     /*
@@ -113,8 +121,14 @@ class ClockTest {
      */
     @Test
     void C10_increaseTimeDifferentNextJump() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        try {
+            int time = 5;
+            this.clock.setNextJump(1);
+            this.clock.increase(time);
+
+        }catch (UnexpectedTimeChangeException e) {
+            e.printStackTrace();
+        } ;
     }
 
     /*
@@ -124,8 +138,9 @@ class ClockTest {
      */
     @Test
     void C11_getTimeWithVirtualTrue() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        int time;
+        this.clock.setVirtual(true);
+        assertEquals(this.clock.getTime(),this.time);
     }
 
     /*
@@ -135,8 +150,9 @@ class ClockTest {
      */
     @Test
     void C12_getTimeWithVirtualFalse() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        Date date = new Date();
+        this.clock.setVirtual(false);
+        assertEquals(this.clock.getTime(),date.getTime());
     }
 
     /*
@@ -146,7 +162,6 @@ class ClockTest {
      */
     @Test
     void C13_lockReadAccess() {
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -157,7 +172,6 @@ class ClockTest {
      */
     @Test
     void C14_unlockReadAccess() {
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -168,7 +182,6 @@ class ClockTest {
      */
     @Test
     void C15_lockWriteAccess() {
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -179,7 +192,6 @@ class ClockTest {
      */
     @Test
     void C16_unlockWriteAccess() {
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -190,8 +202,8 @@ class ClockTest {
      */
     @Test
     void C17_toString() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        String expected = "" + this.time;
+        assertEquals(expected,clock.toString());
     }
 
     /*
@@ -201,8 +213,8 @@ class ClockTest {
      */
     @Test
     void C18_ClockForTimeAttribute(){
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        int time = 0;
+        assertEquals(clock.getTime(),time);
     }
 
     /*
@@ -212,7 +224,6 @@ class ClockTest {
      */
     @Test
     void C19_ClockForNextJumpAttribute(){
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -223,7 +234,6 @@ class ClockTest {
      */
     @Test
     void C20_ClockForLockAttribute(){
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -234,8 +244,8 @@ class ClockTest {
      */
     @Test
     void C21_ClockForVirtualAttribute(){
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        boolean virtualTest = true;
+        assertEquals(virtualTest, this.clock.isVirtual());
     }
 
     /*
@@ -245,7 +255,7 @@ class ClockTest {
      */
     @Test
     void C22_ClockForObserversAttribute(){
-        //TODO @fred & @Clément
         throw new UnsupportedOperationException("Not yet implemented");
+
     }
 }

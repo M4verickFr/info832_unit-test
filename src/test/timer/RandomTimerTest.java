@@ -84,7 +84,7 @@ class RandomTimerTest {
         Résultat Attendu : "Not yet implemented"
      */
     @Test
-    void RT1() {
+    void RT1_Rate() {
         assertEquals("rate: " + randomTimerEXP.getRate(), randomTimerEXP.getDistributionParam());
 
     }
@@ -95,7 +95,7 @@ class RandomTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void RT2() {
+    void RT2_Poisson() {
         assertEquals("mean: " + randomTimerPOISSON.getMean(), randomTimerPOISSON.getDistributionParam());
     }
 
@@ -105,7 +105,7 @@ class RandomTimerTest {
         Résultat Attendu : "Not yet implemented"
     */
     @Test
-    void RT3() {
+    void RT3_Gauss() {
         assertEquals("Inferior limit: " + randomTimerGAUSSIAN.getLimitInferior() + " Superior limit: " + randomTimerGAUSSIAN.getLimitSuperior(), randomTimerGAUSSIAN.getDistributionParam());
     }
 
@@ -115,7 +115,7 @@ class RandomTimerTest {
         Résultat Attendu : "Not yet implemented"
     */
     @Test
-    void RT4() {
+    void RT4_Uniforme() {
 
         assertEquals("Inferior limit: " + randomTimerUNIFORM.getLimitInferior() + " Superior limit: " + randomTimerUNIFORM.getLimitSuperior(), randomTimerUNIFORM.getDistributionParam());
 
@@ -128,7 +128,7 @@ class RandomTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void RT5() {
+    void RT5_ExpMean() {
 
         assertEquals(param, randomTimerEXP.getMean());
 
@@ -140,7 +140,7 @@ class RandomTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void RT6() {
+    void RT6_PoissonMean() {
 
         assertEquals(param, randomTimerPOISSON.getMean());
 
@@ -153,7 +153,7 @@ class RandomTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void RT7() {
+    void RT7_GaussMean() {
 
         assertEquals((limitSuperior + limitInferior) / 2.0, randomTimerGAUSSIAN.getMean());
 
@@ -165,7 +165,7 @@ class RandomTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void RT8() {
+    void RT8_UniformeMean() {
 
         assertEquals((limitSuperior + limitInferior) / 2.0, randomTimerUNIFORM.getMean());
 
@@ -177,7 +177,7 @@ class RandomTimerTest {
         Résultat Attendu : IncorrectDistributionException
     */
     @Test
-    void RT9() {
+    void RT9_UniformWrongArg() {
         assertThrows(Exception.class, () -> new RandomTimer(randomDistribution.POSIBILIST, 1));
 
     }
@@ -189,7 +189,7 @@ class RandomTimerTest {
         Résultat Attendu : IncorrestDistributionException
     */
     @Test
-    void RT10() {
+    void RT10_ExpWrongArg() {
         assertThrows(Exception.class, () -> new RandomTimer(randomDistribution.EXP, -1, 1));
 
 
@@ -201,7 +201,7 @@ class RandomTimerTest {
         Résultat Attendu : Exception to be thrown, but nothing was thrown.
     */
     @Test
-    void RT11() {
+    void RT11_ExpWrongArg() {
         assertThrows(Exception.class, () -> new RandomTimer(randomDistribution.POSIBILIST, 1, -1));
     }
 
@@ -212,7 +212,7 @@ class RandomTimerTest {
         Résultat Attendu : Not yet implemented
     */
     @Test
-    void RT12() {
+    void RT12_Exp() {
 
         for (int i = 0; i < numberIterations; i++) {
             currentNext = randomTimerEXP.next();
@@ -232,7 +232,7 @@ class RandomTimerTest {
         Résultat Attendu : Not yet implemented
     */
     @Test
-    void RT13() {
+    void RT13_Poisson() {
         for (int i = 0; i < numberIterations; i++) {
             currentNext = randomTimerPOISSON.next();
             assertTrue(randomTimerPOISSON.getLimitInferior() <= currentNext && currentNext <= randomTimerPOISSON.getLimitSuperior());
@@ -249,7 +249,7 @@ class RandomTimerTest {
         Résultat Attendu : "Not yet implemented"
     */
     @Test
-    void RT14() {
+    void RT14_Gauss() {
 
         for (int i = 0; i < numberIterations; i++) {
 
@@ -267,7 +267,7 @@ class RandomTimerTest {
         Résultat Attendu : "Not yet implemented"
     */
     @Test
-    void RT15() {
+    void RT15_Uniform() {
 
         for (int i = 0; i < numberIterations; i++) {
 
@@ -285,7 +285,7 @@ class RandomTimerTest {
         Résultat Attendu : "Not yet implemented"
     */
     @Test
-    void RT16() {
+    void RT16_ExpToString() {
         assertEquals(randomTimerEXP.getDistribution() + " rate: " + randomTimerEXP.getRate(), randomTimerEXP.toString());
 
 
@@ -297,7 +297,7 @@ class RandomTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void RT17() {
+    void RT17_PoissonToString() {
 
 
         assertEquals(randomTimerPOISSON.getDistribution() + " mean:" + randomTimerPOISSON.getMean(), randomTimerPOISSON.toString());
@@ -311,7 +311,7 @@ class RandomTimerTest {
         Résultat Attendu : "Not yet implemented"
     */
     @Test
-    void RT18() {
+    void RT18_GaussToString() {
         assertEquals(randomTimerGAUSSIAN.getDistribution() + " Inferior limit: " + randomTimerGAUSSIAN.getLimitInferior() + " Superior limit: " + randomTimerGAUSSIAN.getLimitSuperior(), randomTimerGAUSSIAN.toString());
     }
 
@@ -321,7 +321,7 @@ class RandomTimerTest {
         Résultat Attendu : "Not yet implemented"
     */
     @Test
-    void RT19() {
+    void RT19_UniformToString() {
         assertEquals(randomTimerUNIFORM.getDistribution() + " Inferior limit: " + randomTimerUNIFORM.getLimitInferior() + " Superior limit: " + randomTimerUNIFORM.getLimitSuperior(), randomTimerUNIFORM.toString());
     }
 }

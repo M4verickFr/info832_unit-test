@@ -54,7 +54,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
      */
     @Test
-    void PT1() {
+    void PT1_Period1Int() {
         assertEquals(1, periodicTimer1.getPeriod());
     }
 
@@ -64,7 +64,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
      */
     @Test
-    void PT2() {
+    void PT2_Period2Int() {
         assertEquals(1, periodicTimer2.getPeriod());
     }
 
@@ -74,7 +74,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
      */
     @Test
-    void PT3() {
+    void PT3_Period1Int1Timer() {
         assertEquals(1, periodicTimer3.getPeriod());
     }
 
@@ -84,7 +84,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
      */
     @Test
-    void PT4() {
+    void PT4_Period2Int1Timer() {
         assertEquals(1, periodicTimer4.getPeriod());
     }
 
@@ -94,7 +94,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
      */
     @Test
-    void PT5() {
+    void PT5_PeriodNextValue() {
         assertEquals(nextValue, periodicTimer1.next());
         assertEquals(nextValue, periodicTimer1.next());
     }
@@ -105,7 +105,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void PT6() {
+    void PT6_PeriodValue() {
         assertEquals(nextValue, periodicTimer2.next());
         assertEquals(periodValue, periodicTimer2.next());
     }
@@ -116,7 +116,7 @@ class PeriodicTimerTest {
          Résultat Attendu : True
     */
     @Test
-    void PT7() {
+    void PT7_PeriodValueNextValueRandomTimer() {
         assertEquals(nextValue, periodicTimerWithRandomTimer.next());
     }
 
@@ -126,7 +126,7 @@ class PeriodicTimerTest {
          Résultat Attendu : True, True
     */
     @Test
-    void PT8() {
+    void PT8_NextValueRandomTimer() {
         assertEquals(nextValue, periodicTimerWithRandomTimer.next());
         assertEquals(periodValue, periodicTimerWithRandomTimer.next());
 
@@ -138,7 +138,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void PT9() {
+    void PT9_PeriodWith1Int() {
         assertTrue(periodicTimer1.hasNext());
     }
 
@@ -148,7 +148,7 @@ class PeriodicTimerTest {
          Résultat Attendu : True
     */
     @Test
-    void PT10() {
+    void PT10_PeriodWith2Int() {
         assertTrue(periodicTimer2.hasNext());
     }
 
@@ -158,7 +158,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void PT11() {
+    void PT11_PeriodWith1Int1Timer() {
         assertTrue(periodicTimer3.hasNext());
     }
 
@@ -168,7 +168,7 @@ class PeriodicTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void PT12() {
+    void PT12_Period2Int1Timer() {
         assertTrue(periodicTimer4.hasNext());
 
     }

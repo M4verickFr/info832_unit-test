@@ -38,19 +38,13 @@ class TimeBoundedTimerTest {
         timeBoundedTimer3 = new TimeBoundedTimer(dummyTimer, startTime, stopTime);
     }
 
-    @Test
-    void TBT1_oneShotTimerWithNextInfInitialValue(){
-        //TODO @Zied
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-
     /*
        Entrée : OneShotTimer(1)
        Description : Test du OneShotTimer avec une next value plus petite que le temps de départ
        Résultat Attendu : True
     */
     @Test
-    void TBT2_() {
+    void TBT1_OneShotTimer() {
         assertThrows(NullPointerException.class, () -> new TimeBoundedTimer(oneShotTimerPriorStartTime, 2));
     }
 
@@ -60,7 +54,7 @@ class TimeBoundedTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void TBT3() {
+    void TBT2_FirstValue() {
         assertTrue(timeBoundedTimer1.hasNext());
     }
 
@@ -70,7 +64,7 @@ class TimeBoundedTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void TBT4() {
+    void TBT3_Next() {
         assertEquals(10, timeBoundedTimer1.next());
     }
 
@@ -80,7 +74,7 @@ class TimeBoundedTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void TBT5() {
+    void TBT4_HasNext() {
         assertTrue(timeBoundedTimer1.hasNext());
     }
 
@@ -90,7 +84,7 @@ class TimeBoundedTimerTest {
         Résultat Attendu : NullPointerException
     */
     @Test
-    void TBT6() {
+    void TBT5_Exception() {
         assertThrows(NullPointerException.class, () -> timeBoundedTimer1.next());
     }
 
@@ -100,7 +94,7 @@ class TimeBoundedTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void TBT7() {
+    void TBT6_HasNext2Timers() {
         assertTrue(timeBoundedTimer2.hasNext());
     }
 
@@ -110,7 +104,7 @@ class TimeBoundedTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void TBT8() {
+    void TBT7_HasNext2TimersBis() {
         assertTrue(timeBoundedTimer2.hasNext());
     }
 
@@ -120,7 +114,7 @@ class TimeBoundedTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void TBT9() {
+    void TBT8_NextValueLittle() {
         assertEquals(dummyTimer.next(), timeBoundedTimer2.next());
     }
 
@@ -130,7 +124,7 @@ class TimeBoundedTimerTest {
         Résultat Attendu : False, False
     */
     @Test
-    void TBT10() {
+    void TBT9_NextAndHasNext() {
         assertFalse(timeBoundedTimer3.hasNext());
         assertEquals(startTime, timeBoundedTimer3.next());
     }

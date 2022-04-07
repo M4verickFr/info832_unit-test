@@ -24,7 +24,7 @@ class OneShotTimerTest {
         Résultat Attendu : True
      */
     @Test
-    void OST1_hasNextWithNewTimer() {
+    void OST1_OneShotHasNext() {
         assertTrue(oneShotTimer.hasNext());
     }
 
@@ -34,7 +34,7 @@ class OneShotTimerTest {
         Résultat Attendu : True
      */
     @Test
-    void OST2_nextWithNewTimer(){
+    void OST2_OneShotNotUsedNext(){
         assertEquals(1, oneShotTimer.next());
     }
 
@@ -45,7 +45,7 @@ class OneShotTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void OST3_hasNextWithSecondeTimeUtilisation(){
+    void OST3_OneShotUsedHasNext(){
         // TODO : @Zied
         assertFalse(oneShotTimer.hasNext());
     }
@@ -56,7 +56,7 @@ class OneShotTimerTest {
         Résultat Attendu : Null
     */
     @Test
-    void OST4_nextWithSecondeTimeUtilisation(){
+    void OST4_OneShotUsedNext(){
         oneShotTimer.next();
         assertNull(oneShotTimer.next());
     }

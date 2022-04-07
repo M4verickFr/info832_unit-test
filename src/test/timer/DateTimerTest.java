@@ -55,7 +55,7 @@ class DateTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void DT0_hasNextWithVoidSet() {
+    void DT0_DateTimerWithNullInt() {
         assertFalse(emptyDates.hasNext());
     }
 
@@ -65,7 +65,7 @@ class DateTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void DT1_hasNextWithVoidArrayList() {
+    void DT1_DateTimerWithNullArrayList() {
         assertFalse(emptyLapsTime.hasNext());
     }
 
@@ -75,7 +75,7 @@ class DateTimerTest {
         Résultat Attendu : NullPointerException
     */
     @Test
-    void DT2_voidPointerWithVoidList() {
+    void DT2_DateTimerExceptionWithNullInt() {
         assertThrows(NullPointerException.class, () -> new DateTimer((List<Integer>) null));
     }
 
@@ -85,7 +85,7 @@ class DateTimerTest {
         Résultat Attendu : NullPointerException
     */
     @Test
-    void DT3_voidPointerWithVoidSet() {
+    void DT3_DateTimerExceptionWithNullArrayList() {
         // Idem avec un set d'entiers nul
         assertThrows(NullPointerException.class, () -> new DateTimer((Set<Integer>) null));
     }
@@ -96,7 +96,7 @@ class DateTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void DT4_hasNextWithSet() {
+    void DT4_DateTimerHasNextWithSetInt() {
         for (int i = 0; i < treeSet.size(); i++) {
             assertTrue(dateTimerWithSet.hasNext());
             dateTimerWithSet.next();
@@ -109,7 +109,7 @@ class DateTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void DT5_hasNextWithVoidDataTimer() {
+    void DT5_DateTimerHasNextWithNullInt() {
         for (int i = 0; i < treeSet.size(); i++) {
             dateTimerWithSet.next();
         }
@@ -122,7 +122,7 @@ class DateTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void DT6_hadNextWithListWithElements() {
+    void DT6_DateTimerHasNextWithArrayList() {
         for (int i = 0; i < arrayList.size(); i++) {
             assertTrue(dateTimerWithList.hasNext());
             dateTimerWithList.next();
@@ -135,7 +135,7 @@ class DateTimerTest {
         Résultat Attendu : False
     */
     @Test
-    void DT7_hasNextWithEmptyList() {
+    void DT7_DateTimerHasNextWithNullArrayList() {
         for (int i = 0; i < arrayList.size(); i++) {
             dateTimerWithList.next();
         }
@@ -148,7 +148,7 @@ class DateTimerTest {
         Résultat Attendu : NoSuchElementException
     */
     @Test
-    void DT8_checkIfExceptionOnDateTimerWithTreeSet() {
+    void DT8_DateTimerNextWithEmptyTreeSet() {
         assertThrows(NoSuchElementException.class, () -> emptyDates.next());
     }
 
@@ -158,7 +158,7 @@ class DateTimerTest {
         Résultat Attendu : NoSuchElementException
     */
     @Test
-    void DT9_checkIfExceptionOnDateTimerWithArrayList() {
+    void DT9_DateTimerNextWithNullArrayList() {
         assertThrows(NoSuchElementException.class, () -> emptyLapsTime.next());
     }
 
@@ -168,7 +168,7 @@ class DateTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void DT10_nextWithDateTimerBuiltWithNotEmptyList() {
+    void DT10_DateTimerNextWithArrayList() {
         for (int i = 0; i < arrayList.size(); i++) {
             assertEquals(arrayList.get(i), dateTimerWithList.next());
         }
@@ -180,7 +180,7 @@ class DateTimerTest {
         Résultat Attendu :NoSuchElementException
     */
     @Test
-    void DT11_checkExceptionWhenVoidList() {
+    void DT11_DateTimerNextWithEmptyArrayList() {
         // normalement next throw une exception car il n'y a plus de valeurs
 
         //TODO
@@ -197,7 +197,7 @@ class DateTimerTest {
         Résultat Attendu : True
     */
     @Test
-    void DT12_nextWithDateTimerBuiltWithNotEmptySet() {
+    void DT12_DateTimerNextWithTressSet() {
         for (int i = 0; i < treeSet.size(); i++) {
             assertEquals(1, dateTimerWithSet.next());
         }
@@ -209,7 +209,7 @@ class DateTimerTest {
         Résultat Attendu : NoSuchElementException
     */
     @Test
-    void DT13_checkExceptionWhenVoidSet() {
+    void DT13_DateTimerNextWithEmptyTreeSet() {
         // on teste l'exception, s'il ne reste plus de valeur on throw une exception
 
         //TODO

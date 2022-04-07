@@ -1,13 +1,16 @@
 package test.discrete_behavior_simulator;
 
 import main.discrete_behavior_simulator.Clock;
+import main.discrete_behavior_simulator.ClockObserver;
 import main.exceptions.UnexpectedTimeChangeException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.function.BooleanSupplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,12 +18,14 @@ class ClockTest {
     private Clock clock;
     private int time;
     private ReentrantReadWriteLock lock;
+    HashSet observers = new HashSet();
 
 
     @BeforeEach
     void setUp() {
         this.clock = Clock.getInstance();
         this.time = time;
+        this.observers = new HashSet<>();
     }
 
     /*
@@ -43,8 +48,9 @@ class ClockTest {
      */
     @Test
     void C3_addObserver() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        ClockObserver o = null;
+        clock.addObserver(o);
+        assertTrue(this.observers.contains(o));
     }
 
     /*
@@ -54,8 +60,9 @@ class ClockTest {
      */
     @Test
     void C4_removeObserver() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        ClockObserver o = null;
+        clock.removeObserver(o);
+        assertTrue(!(this.observers.contains(o)));
     }
 
     /*
@@ -99,8 +106,10 @@ class ClockTest {
      */
     @Test
     void C8_setNextJump() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        int nextJump = 0;
+        clock.setNextJump(nextJump);
+        assertEquals(nextJump, this.time);
+
     }
 
     /*
@@ -110,8 +119,14 @@ class ClockTest {
     */
     @Test
     void C9_increaseTimeEqualNextJump() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        int nextJump = 0;
+        int time = 0;
+        try {
+            clock.increase(time);
+        }catch (UnexpectedTimeChangeException e) {
+            e.printStackTrace();
+        } ;
+        assertEquals(time, this.clock.getTime());
     }
     /*
     Entrée : increaseTimeDifferentNextJump(5)
@@ -225,8 +240,8 @@ class ClockTest {
      */
     @Test
     void C19_ClockForNextJumpAttribute(){
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        int nextJump = 0;
+        assertEquals(clock.getNextJump(), nextJump);
     }
 
     /*
@@ -236,8 +251,8 @@ class ClockTest {
      */
     @Test
     void C20_ClockForLockAttribute(){
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        this.lock = new ReentrantReadWriteLock();
+        assertEquals(clock.getLock(), lock);
     }
 
     /*
@@ -258,8 +273,8 @@ class ClockTest {
      */
     @Test
     void C22_ClockForObserversAttribute(){
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        this.observers = new HashSet<>();
+        assertEquals(clock.getObservers(), this.observers);
 
     }
 }

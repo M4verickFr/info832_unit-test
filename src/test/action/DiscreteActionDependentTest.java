@@ -13,6 +13,7 @@ class DiscreteActionDependentTest {
     private OneShotTimer ost2;
     private DiscreteActionDependent dadOneShot;
     private DiscreteActionInterface dadOneShot2;
+    private DiscreteActionInterface dadOneShot3;
 
     @BeforeEach
     void setUp() {
@@ -20,6 +21,7 @@ class DiscreteActionDependentTest {
         ost2 = new OneShotTimer(15);
         dadOneShot = new DiscreteActionDependent(ost, "hasNext", ost);
         dadOneShot2 = new DiscreteActionDependent(ost, "hasNext", ost2);
+        dadOneShot3 = new DiscreteActionDependent(ost, "hasNext", null);
     }
 
     /*
@@ -140,8 +142,8 @@ class DiscreteActionDependentTest {
      */
     @Test
     void DAD11_isEmpty() {
-        //TODO @Célien
-        // assertTrue(dadOneShot.isEmpty());
+        assertFalse(dadOneShot.isEmpty());
+
     }
 
     /*
@@ -184,12 +186,17 @@ class DiscreteActionDependentTest {
      */
     @Test
     void DAD15_hasNextWithBaseActionNotHasNextAndDependentActionsEmpty() {
-
-        //TODO @Célien
-
-        // dadOneShot.next();
-        // assertFalse(dadOneShot.hasNext());
+        assertFalse(dadOneShot3.hasNext());
     }
 
-
+    /*
+            Entrée : updateTimeLaps()
+            Description : Test de updateTimeLaps
+            Résultat Attendu : passe à la méthode suivante
+         */
+    @Test
+    void DAD16_updateTimeLaps() {
+        // dadOneShot2.updateTimeLaps();
+        // it et currentAction impossible à atteindre
+    }
 }

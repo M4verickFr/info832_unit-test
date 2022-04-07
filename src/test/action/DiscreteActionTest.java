@@ -17,6 +17,7 @@ class DiscreteActionTest {
     private OneShotTimer ost2;
     private DiscreteAction daOneShot;
     private DiscreteActionInterface daOneShot2;
+    private DiscreteActionInterface daOneShot3;
 
     @BeforeEach
     void setUp() {
@@ -24,6 +25,7 @@ class DiscreteActionTest {
         ost2 = new OneShotTimer(15);
         daOneShot = new DiscreteAction(ost, "hasNext", ost);
         daOneShot2 = new DiscreteAction(ost, "hasNext", ost2);
+        daOneShot3 = new DiscreteAction(ost, "getMethod", ost);
     }
 
     @Test
@@ -173,7 +175,7 @@ class DiscreteActionTest {
     @Test
     void DA13_toString() {
         //Aucun moyen de récupérer le timmer
-        //assertEquals(daOneShot.toString(), "Object : " + daOneShot.getObject()+"\n Method : " + daOneShot.getMethod() + "\n Stat. : " + daOneShot.getTimer() + "\n delay : " + daOneShot.getCurrentLapsTime());
+        assertEquals(daOneShot.toString(), "Object : " + daOneShot.getObject()+"\n Method : " + daOneShot.getMethod() + "\n Stat. : " + "daOneShot.getTimer()" + "\n delay : " + daOneShot.getCurrentLapsTime());
     }
 
     /*
@@ -227,8 +229,7 @@ class DiscreteActionTest {
      */
     @Test
     void DA18_spendTimeWithParamSupLapsTime() {
-        //TODO @Célien
-
+        // Normal que ca marche pas : il y a pas d'exception (alors qu'il devrait en avoir une car sinon pas logique)
         assertThrows(Exception.class, () -> {
             daOneShot.next();
             daOneShot.spendTime(50);
@@ -241,9 +242,8 @@ class DiscreteActionTest {
         Résultat Attendu : Exception “t < 0”
      */
     @Test
-    void DA19_spendTimeWithParamEqu0() {
-        //TODO @Célien
-
+    void DA19_spendTimeWithParamInf0() {
+        // Normal que ca marche pas : il y a pas d'exception (alors qu'il devrait en avoir une car sinon pas logique)
         assertThrows(Exception.class, () -> {
             daOneShot.next();
             daOneShot.spendTime(-50);

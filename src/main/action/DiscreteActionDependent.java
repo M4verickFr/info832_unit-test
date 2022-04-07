@@ -114,7 +114,7 @@ public class DiscreteActionDependent implements DiscreteActionInterface {
 
 	public void updateTimeLaps() {
 		// time laps is updated at the re-initialization
-		//this.currentAction.updateTimeLaps();	
+		//this.currentAction.updateTimeLaps();
 		this.nextMethod();	
 	}
 
@@ -146,7 +146,7 @@ public class DiscreteActionDependent implements DiscreteActionInterface {
 	}
 
 	public boolean hasNext() {
-		return this.baseAction.hasNext() || !this.depedentActions.isEmpty();		
+		return this.baseAction.hasNext() || !this.depedentActions.isEmpty();
 	}
 
 }

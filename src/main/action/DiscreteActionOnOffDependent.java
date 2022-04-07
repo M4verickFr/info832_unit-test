@@ -77,9 +77,7 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 		*/
 		this.onAction = new DiscreteAction(o, on, new DateTimer(datesOn));
 		this.offAction = new DiscreteAction(o, off, new DateTimer(datesOff));
-		
-		
-		
+
 		if(datesOn.first() < datesOff.first()){
 			this.currentAction = this.onAction;
 		}else{

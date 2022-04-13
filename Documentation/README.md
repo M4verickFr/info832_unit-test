@@ -1,1 +1,1 @@
-# 📃 Partie : Documentation du programme
+# 📃 Documentation du programme

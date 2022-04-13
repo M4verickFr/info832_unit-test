@@ -1,4 +1,4 @@
-## 🆘 [HELP] Sonarcloud report - How generate report ?
+# 🆘 [HELP] Sonarcloud report - How generate report ?
 
 To generate sonarcloud report, we have connected our project to sonar cloud.
 And we have used [Bitegarden Report Generation](https://www.bitegarden.com/sonarcloud-report) to generate report.

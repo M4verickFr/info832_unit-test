@@ -94,4 +94,19 @@ public class Clock {
 	public String toString() {
 		return ""+this.time;
 	}
+
+	public double getNextJump() {
+		// TODO: implement me!
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
+
+	public double getLock() {
+		// TODO: implement me!
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
+
+	public double getObservers() {
+		// TODO: implement me!
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
 }

@@ -1,10 +1,14 @@
 package main.action;
 
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import main.timer.Timer;
+
+import javax.swing.*;
 
 /**
  * @author Tiphaine Bulou (2016)
@@ -12,11 +16,10 @@ import main.timer.Timer;
  *
  */
 
-// TODO must inherit from Action
-public class DiscreteAction implements DiscreteActionInterface {
+public class DiscreteAction implements DiscreteActionInterface, Action {
 	private Object object;
 	private Method method;
-	
+
 	
 	private Timer timer;				// main.test.timer provides new lapsTime
 	//private TreeSet<Integer> dates;	// obsolete, managed in main.test.timer
@@ -37,8 +40,8 @@ public class DiscreteAction implements DiscreteActionInterface {
 	public DiscreteAction(Object o, String m, Timer timer){
 		this();
 		this.object = o;
-		try{	
-			this.method = o.getClass().getDeclaredMethod(m, new Class<?>[0]);
+		try{
+			this.method = o.getClass().getDeclaredMethod(m);
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -53,7 +56,8 @@ public class DiscreteAction implements DiscreteActionInterface {
 		if(this.lapsTime != null) {
 			this.lapsTime -= t;
 		}
-		this.logger.log(Level.FINE, "[DA] operate spendTime on  " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime());
+		String log = String.format("[DA] operate spendTime on  %s:%s: old time %s new time %s", this.getObject().getClass().getName(), this.getObject().hashCode(), old, this.getCurrentLapsTime());
+		this.logger.log(Level.FINE, log);
 	}
 
 	// RECUPERATION
@@ -84,7 +88,7 @@ public class DiscreteAction implements DiscreteActionInterface {
     	if(this.lapsTime < c.getCurrentLapsTime()){
     		return -1;
     	}
-		if(this.lapsTime == c.getCurrentLapsTime()){
+		if(this.lapsTime.equals(c.getCurrentLapsTime())){
 			return 0;
 		}
 		return 0;
@@ -98,13 +102,70 @@ public class DiscreteAction implements DiscreteActionInterface {
 	public DiscreteActionInterface next() {
 		Integer old = this.lapsTime;
 		this.lapsTime = this.timer.next();
-		this.logger.log(Level.FINE, "[DA] operate next on  " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime());
+
+		String log = String.format("[DA] operate next on  %s:%s: old time %s new time %s", this.getObject().getClass().getName(), this.getObject().hashCode(), old, this.getCurrentLapsTime());
+		this.logger.log(Level.FINE, log);
 		return this;
 	}
 
 	public boolean hasNext() {
 		return this.timer != null && this.timer.hasNext();
 	}
-	
 
+
+	@Override
+	public Object getValue(String key) {
+		return this.object;
+	}
+
+	@Override
+	public void putValue(String key, Object value) {
+		this.object = value;
+	}
+
+	@Override
+	public void setEnabled(boolean b) {
+		if (this.hasNext()) {
+			this.timer.next();
+		}
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return this.hasNext();
+	}
+
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		// Nothing to implement
+	}
+
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		// Nothing to implement
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// Nothing to implement
+	}
+
+	public void updateTimeLaps() {
+		if (this.hasNext()) {
+			this.next();
+		}
+	}
+
+	@Override
+	public void updateTimeLaps(long lapsTime) {
+		// Nothing to implement
+	}
+
+	public Integer getLapsTime() {
+		return this.lapsTime;
+	}
+
+	public void setLapsTime(Integer lapsTime) {
+		this.lapsTime = lapsTime;
+	}
 }

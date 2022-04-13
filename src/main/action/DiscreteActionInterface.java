@@ -3,10 +3,7 @@ package main.action;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 
-/*
- * TODO must implement Iterator<Action>
- */
-public interface DiscreteActionInterface extends Comparable<DiscreteActionInterface>, Iterator<DiscreteActionInterface>{
+public interface DiscreteActionInterface extends Comparable<DiscreteActionInterface>, Iterator<DiscreteActionInterface> {
 
 	/*
 	 * decrease the time of discrete main.test.action
@@ -47,4 +44,12 @@ public interface DiscreteActionInterface extends Comparable<DiscreteActionInterf
 	 * @see java.util.Iterator#hasNext()
 	 */
 	public boolean hasNext();
+
+	public Integer getLapsTime();
+
+	public void setLapsTime(Integer lapsTime);
+
+	public void updateTimeLaps();
+
+	public void updateTimeLaps(long lapsTime);
 }

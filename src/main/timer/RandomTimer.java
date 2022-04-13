@@ -2,8 +2,8 @@ package main.timer;
 
 import main.exceptions.UnexpectedTimerConstructorException;
 
+import java.util.NoSuchElementException;
 import java.util.Random;
-import java.util.Vector;
 
 /**
  * @author Flavien Vernier
@@ -116,18 +116,29 @@ public class RandomTimer implements Timer {
 	 * @see methodInvocator.Timer#next()
 	 */
 	@Override
-	public Integer next(){
+	public Integer next() {
+		Integer next = -1;
+
 		switch (this.distribution){
 		case POSIBILIST :
-			return this.nextTimePosibilist();
+			next = this.nextTimePosibilist();
+			break;
 		case POISSON :
-			return this.nextTimePoisson();
+			next = this.nextTimePoisson();
+			break;
 		case EXP :
-			return this.nextTimeExp();
+			next = this.nextTimeExp();
+			break;
 		case GAUSSIAN :
-			return this.nextTimeGaussian();
+			next = this.nextTimeGaussian();
+			break;
 		}
-		return -1; // Theoretically impossible !!!
+
+		if (next >= 0) {
+			return next;
+		} else {
+			throw new NoSuchElementException();
+		}
 	}
 	
 	/**
@@ -169,18 +180,15 @@ public class RandomTimer implements Timer {
 	}
 
 	public double getRate() {
-		// TODO: implement me!
-		throw new UnsupportedOperationException("Not yet implemented");
+		return this.rate;
 	}
 
 	public double getLimitInferior() {
-		// TODO: implement me!
-		throw new UnsupportedOperationException("Not yet implemented");
+		return this.lolim;
 	}
 
 	public double getLimitSuperior() {
-		// TODO: implement me!
-		throw new UnsupportedOperationException("Not yet implemented");
+		return this.hilim;
 	}
 	
 	@Override

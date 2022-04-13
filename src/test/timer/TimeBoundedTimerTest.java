@@ -16,11 +16,14 @@ class TimeBoundedTimerTest {
 
     private OneShotTimer oneShotTimerPriorStartTime;
     private OneShotTimer oneShotTimer1;
+    private OneShotTimer oneShotTimer2;
+
 
     private int startTime;
     private int stopTime;
 
     private RandomTimer dummyTimer;
+    private RandomTimer dummyTimer2;
 
     private TimeBoundedTimer timeBoundedTimer1;
     private TimeBoundedTimer timeBoundedTimer2;
@@ -30,12 +33,14 @@ class TimeBoundedTimerTest {
     void setUp() throws UnexpectedTimerConstructorException {
         oneShotTimerPriorStartTime = new OneShotTimer(1);
         oneShotTimer1 = new OneShotTimer(10);
-        timeBoundedTimer1 = new TimeBoundedTimer(oneShotTimer1, 5);
-        dummyTimer = new RandomTimer(RandomTimer.randomDistribution.EXP, 1.0);
-        startTime = 3;
-        timeBoundedTimer2 = new TimeBoundedTimer(dummyTimer, startTime);
+        oneShotTimer2 = new OneShotTimer(0);
+        timeBoundedTimer1 = new TimeBoundedTimer(oneShotTimer2, 0);
+        dummyTimer = new RandomTimer(RandomTimer.randomDistribution.EXP, 2.0);
+        startTime = 2;
+        timeBoundedTimer2 = new TimeBoundedTimer(dummyTimer,  startTime);
         stopTime = 5;
         timeBoundedTimer3 = new TimeBoundedTimer(dummyTimer, startTime, stopTime);
+
     }
 
     /*
@@ -65,7 +70,7 @@ class TimeBoundedTimerTest {
     */
     @Test
     void TBT3_Next() {
-        assertEquals(10, timeBoundedTimer1.next());
+        assertEquals(0, timeBoundedTimer1.next());
     }
 
     /*
@@ -115,7 +120,7 @@ class TimeBoundedTimerTest {
     */
     @Test
     void TBT8_NextValueLittle() {
-        assertEquals(dummyTimer.next(), timeBoundedTimer2.next());
+        assertEquals(dummyTimer.next(), timeBoundedTimer1.next());
     }
 
     /*
@@ -124,11 +129,21 @@ class TimeBoundedTimerTest {
         Résultat Attendu : False, False
     */
     @Test
-    void TBT9_NextAndHasNext() {
+    void TBT9_hasNext() {
         assertFalse(timeBoundedTimer3.hasNext());
-        assertEquals(startTime, timeBoundedTimer3.next());
+
     }
 
+    /*
+        Entrée : TimeBoundedTimer(dummyTimer, startTime, stopTime)
+        Description : Test de hasNext et de next
+        Résultat Attendu : False, False
+    */
+    @Test
+    void TBT10_next() {
+        assertNull(timeBoundedTimer3.next());
+
+    }
 }
 
         

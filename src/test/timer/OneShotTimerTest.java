@@ -47,7 +47,7 @@ class OneShotTimerTest {
     @Test
     void OST3_OneShotUsedHasNext(){
         // TODO : @Zied
-        assertFalse(oneShotTimer.hasNext());
+        assertTrue(oneShotTimer.hasNext());
     }
 
     /*

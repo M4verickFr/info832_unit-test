@@ -20,6 +20,8 @@ class MergedTimerTest {
     OneShotTimer oneShotTimer2;
     OneShotTimer oneShotTimer3;
     MergedTimer oneShotAndInfinite;
+    MergedTimer oneShotAndInfinite2;
+
 
     @BeforeEach
     void setUp() {
@@ -47,6 +49,7 @@ class MergedTimerTest {
         };
 
         oneShotAndInfinite = new MergedTimer(oneShotTimer3, infiniteTimer);
+        oneShotAndInfinite2 = new MergedTimer(oneShotTimer1, infiniteTimer);
 
     }
 
@@ -140,7 +143,8 @@ class MergedTimerTest {
     @Test
     void MT9_InfiniteAndOneShotHasNext() {
         // Notre timer infini peut être utilisé un nombre illimité de fois (il return toujours true), mais notre timer Timer 3 ne peut être utilisé qu'une fois (oneshot), donc normalement on a True
-        assertFalse(oneShotAndInfinite.hasNext());
+        oneShotAndInfinite2.next();
+        assertFalse(oneShotAndInfinite2.hasNext());
     }
     /*
         Entrée : oneShotAndInfinite.next()
@@ -150,7 +154,8 @@ class MergedTimerTest {
     @Test
     void MT10_InfiniteAndOneShotNext() {
         // Si on essaye de return la next value, on a donc null
-        assertNull(oneShotAndInfinite.next());
+        oneShotAndInfinite2.next();
+        assertNull(oneShotAndInfinite2.next());
     }
 
 

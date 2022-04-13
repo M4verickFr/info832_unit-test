@@ -15,7 +15,6 @@ import main.timer.DateTimer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 class DateTimerTest {
 
     private DateTimer emptyDates;

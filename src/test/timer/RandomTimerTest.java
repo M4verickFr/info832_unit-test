@@ -18,11 +18,13 @@ class RandomTimerTest {
     private double limitSuperior;
     private RandomTimer randomTimerGAUSSIAN;
     private RandomTimer randomTimerUNIFORM;
+    private RandomTimer randomNull;
 
     private int numberIterations;
     private int total;
     private Integer currentNext;
 
+    private String distributionNull;
     private double param2;
     private double param3;
     double limitInferior2;
@@ -322,6 +324,72 @@ class RandomTimerTest {
     */
     @Test
     void RT19_UniformToString() {
-        assertEquals(randomTimerUNIFORM.getDistribution() + " Inferior limit: " + randomTimerUNIFORM.getLimitInferior() + " Superior limit: " + randomTimerUNIFORM.getLimitSuperior(), randomTimerUNIFORM.toString());
+        assertEquals(randomTimerUNIFORM.toString(), randomTimerUNIFORM.getDistribution() + " Inferior limit: " + randomTimerUNIFORM.getLimitInferior() + " Superior limit: " + randomTimerUNIFORM.getLimitSuperior());
     }
+
+    /*
+        Entrée :
+        Description :
+        Résultat Attendu :
+    */
+    @Test
+    void RT20_string2Distribution() {
+        assertEquals("EXP", randomTimerEXP.getDistribution());
+    }
+
+
+    /*
+        Entrée :
+        Description :
+        Résultat Attendu :
+    */
+    @Test
+    void RT21_getDistributionParamEXP() {
+        assertEquals(randomTimerEXP.getDistributionParam(),"rate: " + param);
+    }
+
+    /*
+        Entrée :
+        Description :
+        Résultat Attendu :
+    */
+    @Test
+    void RT22_getDistributionParamPOSIBILIST() {
+        assertEquals(randomTimerUNIFORM.getDistributionParam(),"lolim: " + limitInferior + " hilim: " + limitSuperior);
+    }
+
+
+    /*
+        Entrée :
+        Description :
+        Résultat Attendu :
+    */
+    @Test
+    void RT23_getDistributionParamGAUSSIAN() {
+        assertEquals(randomTimerGAUSSIAN.getDistributionParam(),"lolim: " + limitInferior2 + " hilim: " + limitSuperior2);
+    }
+
+
+    /*
+        Entrée :
+        Description :
+        Résultat Attendu : IMPOSSIBLE A TESTER, IL FAUT RAJOUTER DANS LE CODE la possibilité de créer une randomDistribution, on ne peut pas créer de distribution autre que EXP, POSIBILIST, GAUSSIAN et POISSON donc on peut pas tester pour les cas autres que ceux-co
+    */
+    @Test
+    void RT24_getDistributionParamNULL() {
+
+
+    }
+
+    /*
+        Entrée :
+        Description :
+        Résultat Attendu :
+    */
+    @Test
+    void RT25_toStringPOSIBILIST() {
+        assertEquals(randomTimerGAUSSIAN.getDistributionParam(),"lolim: " + limitInferior2 + " hilim: " + limitSuperior2);
+    }
+
+
 }

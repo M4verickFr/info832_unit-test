@@ -1,1 +1,1 @@
-# 🔝 Partie : Rapport SonarCloud 
+# 🔝 Rapport SonarCloud 

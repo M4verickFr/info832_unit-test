@@ -94,4 +94,16 @@ public class Clock {
 	public String toString() {
 		return ""+this.time;
 	}
+
+	public double getNextJump() {
+		return this.nextJump;
+	}
+
+	public ReentrantReadWriteLock getLock() {
+		return this.lock;
+	}
+
+	public Set<ClockObserver> getObservers() {
+		return this.observers;
+	}
 }

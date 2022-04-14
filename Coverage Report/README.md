@@ -1,4 +1,4 @@
-# 📔 Coverage Report
+# 📔 Rapport de couverture
 
 
 ### 🎯 Objectif(s) des documents

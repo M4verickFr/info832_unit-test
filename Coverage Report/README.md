@@ -14,7 +14,12 @@ ____
 
 Pour la version v1.0 du projet : 
 
+![image](https://user-images.githubusercontent.com/54810120/163540446-443d7691-fdbf-469a-8b38-3307db8d200b.png)
+
 Pour la version v2.0 du projet : 
+
+![image](https://user-images.githubusercontent.com/54810120/163540525-f382f3fc-df7c-497c-9685-870da662a202.png)
+
 
 
 ### 📃 Versions des documents 

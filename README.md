@@ -76,3 +76,4 @@ Après la réingénierie de votre système, nous avons calculer les mêmes métr
 * **CAULLIREAU Dorian** _alias_ [@caullird](https://github.com/caullird)
 * **GOBJI Zied** _alias_ [@ZiedGOBJI](https://github.com/ZiedGOBJI)
 * **GIGUÈRE-MARCIL Frédéric** _alias_ [@fredgig](https://github.com/fredgig)
+* **KOEBERLÉ Célien** _alias_ [@koeberlc](https://github.com/koeberlc)

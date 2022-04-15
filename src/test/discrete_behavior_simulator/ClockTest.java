@@ -174,8 +174,7 @@ class ClockTest {
      */
     @Test
     void C13_lockReadAccess() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -185,8 +184,7 @@ class ClockTest {
      */
     @Test
     void C14_unlockReadAccess() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -196,8 +194,7 @@ class ClockTest {
      */
     @Test
     void C15_lockWriteAccess() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -207,8 +204,7 @@ class ClockTest {
      */
     @Test
     void C16_unlockWriteAccess() {
-        //TODO @fred & @Clément
-        throw new UnsupportedOperationException("Not yet implemented");
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*

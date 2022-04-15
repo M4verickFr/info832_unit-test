@@ -29,8 +29,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS1_DiscreteActionSimulatorForLoggerAttribute() {
-        //TODO @fred & @Clément
-        // Attribute logger is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -40,8 +39,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS2_DiscreteActionSimulatorForLevelAttribute() {
-        //TODO @fred & @Clément
-        // Attribute logger is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -51,8 +49,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS3_DiscreteActionSimulatorForsetUseParentHandlersAttribute() {
-        //TODO @fred & @Clément
-        // Attribute logger is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -62,8 +59,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS4_DiscreteActionSimulatorForFileNameAttribute() {
-        //TODO @fred & @Clément
-        // Attribute logFile is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -73,8 +69,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS5_DiscreteActionSimulator() {
-        //TODO @fred & @Clément
-        // Attribute logFile is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -84,8 +79,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS6_DiscreteActionSimulator() {
-        //TODO @fred & @Clément
-        // Attribute logConsole is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -95,8 +89,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS7_DiscreteActionSimulator() {
-        //TODO @fred & @Clément
-        // Attribute logger is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -106,8 +99,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS8_DiscreteActionSimulator() {
-        //TODO @fred & @Clément
-        // Attribute logger is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -117,8 +109,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS9_DiscreteActionSimulator() {
-        //TODO @fred & @Clément
-        // Attribute globalTime is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -128,8 +119,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS10_DiscreteActionSimulator() {
-        //TODO @fred & @Clément
-        // Attribute t is private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -139,8 +129,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS11_setNbLoop() {
-        //TODO @fred & @Clément
-        // Attributes nbLoop and step are private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -150,8 +139,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS12_setNbLoop() {
-        //TODO @fred & @Clément
-        // Attributes nbLoop and step are private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -161,8 +149,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS13_setNbLoop() {
-        //TODO @fred & @Clément
-        // Attributes nbLoop and step are private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*
@@ -172,8 +159,7 @@ class DiscreteActionSimulatorTest {
      */
     @Test
     void DAS14_setNbLoop() {
-        //TODO @fred & @Clément
-        // Attributes nbLoop and step are private, cannot be accessed and tested
+        //Function not implemented due to lack of time or technical capacity (Fredéric & Clément)
     }
 
     /*

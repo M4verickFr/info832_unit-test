@@ -11,7 +11,6 @@ import main.timer.Timer;
  * @author flver
  *
  */
-//TODO Must be refactored to be generic
 public class DiscreteActionDependent implements DiscreteActionInterface {
 	
 	protected DiscreteAction baseAction;

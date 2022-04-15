@@ -12,7 +12,13 @@ ____
 
 Pour la version v1.0 du projet :
 
+![image](https://user-images.githubusercontent.com/54810120/163541498-4cf57a80-48df-4dac-a6dc-d93defa77775.png)
+
+
 Pour la version v2.0 du projet :
+
+![image](https://user-images.githubusercontent.com/54810120/163541537-73b2c6f3-c3cf-4519-8959-1a38c36d257e.png)
+
 
 
 ### 📃 Versions des documents

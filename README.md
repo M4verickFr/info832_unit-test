@@ -63,14 +63,14 @@ Après la réingénierie de votre système, nous avons calculer les mêmes métr
 
 **Lien vers les rapport SonarLint v2.0** : [Documents GitHub](https://github.com/M4verickFr/info832_unit-test/tree/main/Coverage%20Report)
 
-## 🏗️ **Developed with**
+## 🏗️ **Dévéloppé avec**
 
 * [JetBrain IntelliJ IDEA](https://www.jetbrains.com/fr-fr/idea/)
 * [SonarCloud](https://sonarcloud.io/)
 * [JUnit5](https://junit.org/junit5/)
 
 
-## 💪 **Authors of this project**
+## 💪 **Membre de l'équipe du projet**
 
 * **PERROLLAZ Maverick** _alias_ [@M4verickFr](https://github.com/M4verickFr)
 * **CAULLIREAU Dorian** _alias_ [@caullird](https://github.com/caullird)

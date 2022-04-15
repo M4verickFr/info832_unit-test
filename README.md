@@ -49,7 +49,7 @@ Après la réingénierie de votre système, nous avons calculer les mêmes métr
 
 
 
-### 5️⃣ Rédiger le rapport de qualité qui va contenir pour la v2.0 ✅:
+### 5️⃣ Rédiger le rapport de qualité qui va contenir pour la v2.0 :
 
 #### a. Bilant JUnit de la v2.0
 

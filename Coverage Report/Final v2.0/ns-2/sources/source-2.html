@@ -1,0 +1,343 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > DiscreteActionSimulator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">main.discrete_behavior_simulator</a>
+</div>
+
+<h1>Coverage Summary for Class: DiscreteActionSimulator (main.discrete_behavior_simulator)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DiscreteActionSimulator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    72,7%
+  </span>
+  <span class="absValue">
+    (8/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    45%
+  </span>
+  <span class="absValue">
+    (50/111)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;
+<i class="no-highlight">2</i>&nbsp;package main.discrete_behavior_simulator;
+<i class="no-highlight">3</i>&nbsp;
+<i class="no-highlight">4</i>&nbsp;import java.lang.reflect.Method;
+<i class="no-highlight">5</i>&nbsp;import java.util.Collections;
+<i class="no-highlight">6</i>&nbsp;import java.util.Vector;
+<i class="no-highlight">7</i>&nbsp;import java.util.logging.ConsoleHandler;
+<i class="no-highlight">8</i>&nbsp;import java.util.logging.FileHandler;
+<i class="no-highlight">9</i>&nbsp;import java.util.logging.Level;
+<i class="no-highlight">10</i>&nbsp;import java.util.logging.Logger;
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;import main.action.DiscreteActionInterface;
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;
+<i class="no-highlight">15</i>&nbsp;/**
+<i class="no-highlight">16</i>&nbsp; * @author Tiphaine Bulou (2016)
+<i class="no-highlight">17</i>&nbsp; * @author Flavien Vernier
+<i class="no-highlight">18</i>&nbsp; *
+<i class="no-highlight">19</i>&nbsp; */
+<i class="no-highlight">20</i>&nbsp;public class DiscreteActionSimulator implements Runnable {
+<i class="no-highlight">21</i>&nbsp;
+<i class="no-highlight">22</i>&nbsp;
+<i class="no-highlight">23</i>&nbsp;	private Thread t;
+<b class="fc"><i class="no-highlight">24</i>&nbsp;	private boolean running = false;</b>
+<i class="no-highlight">25</i>&nbsp;	
+<i class="no-highlight">26</i>&nbsp;	private Clock globalTime;
+<i class="no-highlight">27</i>&nbsp;	
+<b class="fc"><i class="no-highlight">28</i>&nbsp;	private Vector&lt;DiscreteActionInterface&gt; actionsList = new Vector&lt;&gt;();</b>
+<i class="no-highlight">29</i>&nbsp;	
+<i class="no-highlight">30</i>&nbsp;	private int nbLoop;
+<i class="no-highlight">31</i>&nbsp;	private int step;
+<i class="no-highlight">32</i>&nbsp;	
+<i class="no-highlight">33</i>&nbsp;	private Logger logger;
+<i class="no-highlight">34</i>&nbsp;	private FileHandler logFile; 
+<i class="no-highlight">35</i>&nbsp;	private ConsoleHandler logConsole; 
+<i class="no-highlight">36</i>&nbsp;
+<b class="fc"><i class="no-highlight">37</i>&nbsp;	public DiscreteActionSimulator(){</b>
+<i class="no-highlight">38</i>&nbsp;		
+<i class="no-highlight">39</i>&nbsp;		// Start logger
+<b class="fc"><i class="no-highlight">40</i>&nbsp;		this.logger = Logger.getLogger(&quot;DAS&quot;);</b>
+<b class="fc"><i class="no-highlight">41</i>&nbsp;		//this.logger = Logger.getLogger(&quot;APP&quot;);</b>
+<b class="fc"><i class="no-highlight">42</i>&nbsp;		this.logger.setLevel(Level.ALL);</b>
+<i class="no-highlight">43</i>&nbsp;		this.logger.setUseParentHandlers(true);
+<b class="fc"><i class="no-highlight">44</i>&nbsp;		try{</b>
+<b class="fc"><i class="no-highlight">45</i>&nbsp;			this.logFile = new FileHandler(this.getClass().getName() + &quot;.log&quot;);</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;			//this.logFile.setFormatter(new SimpleFormatter());</b>
+<b class="nc"><i class="no-highlight">47</i>&nbsp;			this.logFile.setFormatter(new LogFormatter());</b>
+<b class="nc"><i class="no-highlight">48</i>&nbsp;			this.logConsole = new ConsoleHandler();</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;		}catch(Exception e){</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;			e.printStackTrace();</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;		}</b>
+<i class="no-highlight">52</i>&nbsp;		this.logger.addHandler(logFile);
+<i class="no-highlight">53</i>&nbsp;		this.logger.addHandler(logConsole);
+<b class="fc"><i class="no-highlight">54</i>&nbsp;		</b>
+<i class="no-highlight">55</i>&nbsp;
+<b class="fc"><i class="no-highlight">56</i>&nbsp;		this.globalTime = Clock.getInstance();</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;		</b>
+<i class="no-highlight">58</i>&nbsp;		this.t = new Thread(this);
+<i class="no-highlight">59</i>&nbsp;		this.t.setName(&quot;Discrete Action Simulator&quot;);
+<i class="no-highlight">60</i>&nbsp;	}
+<i class="no-highlight">61</i>&nbsp;	
+<i class="no-highlight">62</i>&nbsp;	/**
+<i class="no-highlight">63</i>&nbsp;	 * @param nbLoop defines the number of loop for the simulation, the simulation is infinite if nbLoop is negative or 0.
+<b class="fc"><i class="no-highlight">64</i>&nbsp;	 */</b>
+<b class="fc"><i class="no-highlight">65</i>&nbsp;	public void setNbLoop(int nbLoop){</b>
+<b class="fc"><i class="no-highlight">66</i>&nbsp;		if(nbLoop&gt;0){</b>
+<i class="no-highlight">67</i>&nbsp;			this.nbLoop = nbLoop;
+<b class="nc"><i class="no-highlight">68</i>&nbsp;			this.step = 1;</b>
+<b class="nc"><i class="no-highlight">69</i>&nbsp;		}else{ // running infinitely</b>
+<i class="no-highlight">70</i>&nbsp;			this.nbLoop = 0;
+<i class="no-highlight">71</i>&nbsp;			this.step = -1;
+<i class="no-highlight">72</i>&nbsp;		}
+<i class="no-highlight">73</i>&nbsp;	}
+<i class="no-highlight">74</i>&nbsp;	
+<b class="fc"><i class="no-highlight">75</i>&nbsp;	public void addAction(DiscreteActionInterface c){</b>
+<i class="no-highlight">76</i>&nbsp;
+<b class="fc"><i class="no-highlight">77</i>&nbsp;		if(c.hasNext()) {</b>
+<i class="no-highlight">78</i>&nbsp;			// add to list of actions, next is call to the main.test.action exist at the first time
+<i class="no-highlight">79</i>&nbsp;			this.actionsList.add(c.next());
+<b class="fc"><i class="no-highlight">80</i>&nbsp;</b>
+<i class="no-highlight">81</i>&nbsp;			// sort the list for ordered execution 
+<i class="no-highlight">82</i>&nbsp;			Collections.sort(this.actionsList);
+<i class="no-highlight">83</i>&nbsp;		}
+<i class="no-highlight">84</i>&nbsp;	}
+<i class="no-highlight">85</i>&nbsp;	
+<i class="no-highlight">86</i>&nbsp;	/*public void addTemporalRule(TemporalRule r){
+<i class="no-highlight">87</i>&nbsp;		
+<b class="nc"><i class="no-highlight">88</i>&nbsp;	}*/</b>
+<b class="nc"><i class="no-highlight">89</i>&nbsp;</b>
+<i class="no-highlight">90</i>&nbsp;	/**
+<i class="no-highlight">91</i>&nbsp;	 * @return the laps time before the next main.test.action
+<i class="no-highlight">92</i>&nbsp;	 */
+<i class="no-highlight">93</i>&nbsp;	private int nextLapsTime() {
+<i class="no-highlight">94</i>&nbsp;		DiscreteActionInterface currentAction = this.actionsList.get(0);
+<i class="no-highlight">95</i>&nbsp;		return currentAction.getCurrentLapsTime();
+<i class="no-highlight">96</i>&nbsp;	}
+<b class="nc"><i class="no-highlight">97</i>&nbsp;	/**</b>
+<b class="nc"><i class="no-highlight">98</i>&nbsp;	 * @return laps time of the running main.test.action</b>
+<b class="nc"><i class="no-highlight">99</i>&nbsp;	 */</b>
+<b class="nc"><i class="no-highlight">100</i>&nbsp;	private int runAction(){</b>
+<i class="no-highlight">101</i>&nbsp;		// Run the first main.test.action
+<i class="no-highlight">102</i>&nbsp;		int sleepTime = 0;
+<b class="nc"><i class="no-highlight">103</i>&nbsp;</b>
+<b class="nc"><i class="no-highlight">104</i>&nbsp;</b>
+<b class="nc"><i class="no-highlight">105</i>&nbsp;		// TODO Manage parallel execution !  </b>
+<b class="nc"><i class="no-highlight">106</i>&nbsp;		DiscreteActionInterface currentAction = this.actionsList.get(0);</b>
+<i class="no-highlight">107</i>&nbsp;		Object o = currentAction.getObject();
+<b class="nc"><i class="no-highlight">108</i>&nbsp;		Method m = currentAction.getMethod();</b>
+<b class="nc"><i class="no-highlight">109</i>&nbsp;		sleepTime = currentAction.getCurrentLapsTime();</b>
+<b class="nc"><i class="no-highlight">110</i>&nbsp;		</b>
+<b class="nc"><i class="no-highlight">111</i>&nbsp;		try {</b>
+<b class="nc"><i class="no-highlight">112</i>&nbsp;			//Thread.sleep(sleepTime); // Real time can be very slow</b>
+<b class="nc"><i class="no-highlight">113</i>&nbsp;			Thread.yield();</b>
+<b class="nc"><i class="no-highlight">114</i>&nbsp;			//Thread.sleep(1000); // Wait message bus sends</b>
+<i class="no-highlight">115</i>&nbsp;			if(this.globalTime!=null) {
+<i class="no-highlight">116</i>&nbsp;				this.globalTime.increase(sleepTime);
+<b class="nc"><i class="no-highlight">117</i>&nbsp;			}</b>
+<b class="nc"><i class="no-highlight">118</i>&nbsp;			m.invoke(o);</b>
+<b class="nc"><i class="no-highlight">119</i>&nbsp;			if(this.globalTime!=null) {</b>
+<b class="nc"><i class="no-highlight">120</i>&nbsp;				this.logger.log(Level.FINE, &quot;[DAS] run main.test.action &quot; + m.getName() + &quot; on &quot; + o.getClass().getName() + &quot;:&quot; + o.hashCode() + &quot; at &quot; + this.globalTime.getTime() + &quot; after &quot; + sleepTime + &quot; time units\n&quot;);</b>
+<i class="no-highlight">121</i>&nbsp;				System.out.println(&quot;[DAS] run main.test.action &quot; + m.getName() + &quot; on &quot; + o.getClass().getName() + &quot;:&quot; + o.hashCode() + &quot; at &quot; + this.globalTime.getTime() + &quot; after &quot; + sleepTime + &quot; time units\n&quot;);
+<b class="nc"><i class="no-highlight">122</i>&nbsp;			}else {</b>
+<i class="no-highlight">123</i>&nbsp;				this.logger.log(Level.FINE, &quot;[DAS] run main.test.action &quot; + m.getName() + &quot; on &quot; + o.getClass().getName() + &quot;:&quot; + o.hashCode() + &quot; after &quot; + sleepTime + &quot; time units\n&quot;);
+<i class="no-highlight">124</i>&nbsp;				System.out.println(&quot;[DAS] run main.test.action &quot; + m.getName() + &quot; on &quot; + o.getClass().getName() + &quot;:&quot; + o.hashCode() + &quot; after &quot; + sleepTime + &quot; time units\n&quot;);
+<i class="no-highlight">125</i>&nbsp;			
+<i class="no-highlight">126</i>&nbsp;			}
+<i class="no-highlight">127</i>&nbsp;			
+<b class="nc"><i class="no-highlight">128</i>&nbsp;		}catch (Exception e) {</b>
+<b class="nc"><i class="no-highlight">129</i>&nbsp;			e.printStackTrace();</b>
+<b class="nc"><i class="no-highlight">130</i>&nbsp;		}</b>
+<b class="nc"><i class="no-highlight">131</i>&nbsp;</b>
+<i class="no-highlight">132</i>&nbsp;		return sleepTime;
+<i class="no-highlight">133</i>&nbsp;	}
+<i class="no-highlight">134</i>&nbsp;
+<b class="nc"><i class="no-highlight">135</i>&nbsp;	private void updateTimes(int runningTimeOf1stCapsul){</b>
+<b class="nc"><i class="no-highlight">136</i>&nbsp;		</b>
+<i class="no-highlight">137</i>&nbsp;		// update time laps off all actions
+<b class="nc"><i class="no-highlight">138</i>&nbsp;		for(int i=1 ; i &lt; this.actionsList.size(); i++){</b>
+<i class="no-highlight">139</i>&nbsp;			//int d = this.actionsList.get(i).getLapsTime();
+<i class="no-highlight">140</i>&nbsp;			//this.actionsList.get(i).setLapsTemps(d- runningTimeOf1stCapsul);
+<i class="no-highlight">141</i>&nbsp;			this.actionsList.get(i).spendTime(runningTimeOf1stCapsul);
+<b class="nc"><i class="no-highlight">142</i>&nbsp;		}</b>
+<b class="nc"><i class="no-highlight">143</i>&nbsp;</b>
+<i class="no-highlight">144</i>&nbsp;		// get new time lapse of first main.test.action
+<i class="no-highlight">145</i>&nbsp;		/*if(this.globalTime == null) {
+<b class="nc"><i class="no-highlight">146</i>&nbsp;			this.actionsList.get(0).updateTimeLaps();</b>
+<i class="no-highlight">147</i>&nbsp;		}else {	
+<i class="no-highlight">148</i>&nbsp;			this.actionsList.get(0).updateTimeLaps(this.globalTime.getTime());
+<b class="nc"><i class="no-highlight">149</i>&nbsp;		}</b>
+<b class="nc"><i class="no-highlight">150</i>&nbsp;		</b>
+<b class="nc"><i class="no-highlight">151</i>&nbsp;		// remove the main.test.action if no more lapse time is defined</b>
+<b class="nc"><i class="no-highlight">152</i>&nbsp;		if(this.actionsList.get(0).getLastLapsTime() == null) {</b>
+<b class="nc"><i class="no-highlight">153</i>&nbsp;			this.actionsList.remove(0);</b>
+<b class="nc"><i class="no-highlight">154</i>&nbsp;		}else {</b>
+<b class="nc"><i class="no-highlight">155</i>&nbsp;			// resort the list</b>
+<b class="nc"><i class="no-highlight">156</i>&nbsp;			Collections.sort(this.actionsList);</b>
+<b class="nc"><i class="no-highlight">157</i>&nbsp;		}*/</b>
+<b class="nc"><i class="no-highlight">158</i>&nbsp;</b>
+<i class="no-highlight">159</i>&nbsp;		DiscreteActionInterface a = this.actionsList.remove(0);
+<b class="nc"><i class="no-highlight">160</i>&nbsp;		if(a.hasNext()) {</b>
+<i class="no-highlight">161</i>&nbsp;			a = a.next();
+<i class="no-highlight">162</i>&nbsp;			this.actionsList.addElement(a);
+<i class="no-highlight">163</i>&nbsp;			if(this.globalTime!=null) {
+<i class="no-highlight">164</i>&nbsp;				this.logger.log(Level.FINE, &quot;[DAS] reset main.test.action &quot; + a.getMethod().getName() + &quot; on &quot; + a.getObject().getClass().getName() + &quot;:&quot; + a.getObject().hashCode() + &quot; at &quot; + this.globalTime.getTime() + &quot; to &quot; + a.getCurrentLapsTime() + &quot; time units\n&quot;);
+<i class="no-highlight">165</i>&nbsp;				System.out.println(&quot;[DAS] reset main.test.action &quot; + a.getMethod().getName() + &quot; on &quot; + a.getObject().getClass().getName() + &quot;:&quot; + a.getObject().hashCode() + &quot; at &quot; + this.globalTime.getTime() + &quot; to &quot; + a.getCurrentLapsTime() + &quot; time units\n&quot;);
+<b class="fc"><i class="no-highlight">166</i>&nbsp;			}else {</b>
+<b class="fc"><i class="no-highlight">167</i>&nbsp;				this.logger.log(Level.FINE, &quot;[DAS] reset main.test.action &quot; + a.getMethod().getName() + &quot; on &quot; + a.getObject().getClass().getName() + &quot;:&quot; + a.getObject().hashCode() + &quot; to &quot; + a.getCurrentLapsTime() + &quot; time units\n&quot;);</b>
+<i class="no-highlight">168</i>&nbsp;				System.out.println(&quot;[DAS] reset main.test.action &quot; + a.getMethod().getName() + &quot; on &quot; + a.getObject().getClass().getName() + &quot;:&quot; + a.getObject().hashCode() + &quot; to &quot; + a.getCurrentLapsTime() + &quot; time units\n&quot;);
+<b class="fc"><i class="no-highlight">169</i>&nbsp;			}</b>
+<b class="fc"><i class="no-highlight">170</i>&nbsp;			Collections.sort(this.actionsList);</b>
+<i class="no-highlight">171</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">172</i>&nbsp;	}</b>
+<i class="no-highlight">173</i>&nbsp;
+<b class="fc"><i class="no-highlight">174</i>&nbsp;</b>
+<b class="nc"><i class="no-highlight">175</i>&nbsp;	public void run() {</b>
+<b class="nc"><i class="no-highlight">176</i>&nbsp;		int count = this.nbLoop;</b>
+<b class="nc"><i class="no-highlight">177</i>&nbsp;		boolean finished = false;</b>
+<i class="no-highlight">178</i>&nbsp;
+<b class="nc"><i class="no-highlight">179</i>&nbsp;		System.out.println(&quot;LANCEMENT DU THREAD &quot; + t.getName() + &quot; \n&quot;);</b>
+<b class="nc"><i class="no-highlight">180</i>&nbsp;</b>
+<b class="nc"><i class="no-highlight">181</i>&nbsp;		while(running &amp;&amp; !finished){</b>
+<b class="nc"><i class="no-highlight">182</i>&nbsp;</b>
+<i class="no-highlight">183</i>&nbsp;			if(!this.actionsList.isEmpty()){
+<b class="nc"><i class="no-highlight">184</i>&nbsp;				System.out.println(this);</b>
+<b class="nc"><i class="no-highlight">185</i>&nbsp;				this.globalTime.setNextJump(this.nextLapsTime());</b>
+<b class="nc"><i class="no-highlight">186</i>&nbsp;				</b>
+<b class="nc"><i class="no-highlight">187</i>&nbsp;				this.globalTime.lockWriteAccess();</b>
+<b class="nc"><i class="no-highlight">188</i>&nbsp;				int runningTime = this.runAction();</b>
+<b class="nc"><i class="no-highlight">189</i>&nbsp;				this.updateTimes(runningTime);</b>
+<b class="nc"><i class="no-highlight">190</i>&nbsp;				this.globalTime.unlockWriteAccess();</b>
+<b class="fc"><i class="no-highlight">191</i>&nbsp;				try {</b>
+<b class="fc"><i class="no-highlight">192</i>&nbsp;					Thread.sleep(100);</b>
+<i class="no-highlight">193</i>&nbsp;				}catch(Exception e) {
+<i class="no-highlight">194</i>&nbsp;					e.printStackTrace();
+<b class="fc"><i class="no-highlight">195</i>&nbsp;				}</b>
+<b class="fc"><i class="no-highlight">196</i>&nbsp;				//TODO add global time synchronizer for main.test.action with list of date and avoid drift</b>
+<b class="fc"><i class="no-highlight">197</i>&nbsp;			}else{</b>
+<i class="no-highlight">198</i>&nbsp;				System.out.println(&quot;NOTHING TO DO\n&quot;);
+<i class="no-highlight">199</i>&nbsp;				this.stop();
+<b class="fc"><i class="no-highlight">200</i>&nbsp;			}</b>
+<b class="fc"><i class="no-highlight">201</i>&nbsp;</b>
+<b class="fc"><i class="no-highlight">202</i>&nbsp;			count -= this.step;</b>
+<b class="fc"><i class="no-highlight">203</i>&nbsp;			if(count&lt;=0) {</b>
+<i class="no-highlight">204</i>&nbsp;				finished = true;
+<b class="fc"><i class="no-highlight">205</i>&nbsp;			}</b>
+<b class="fc"><i class="no-highlight">206</i>&nbsp;		}</b>
+<i class="no-highlight">207</i>&nbsp;		this.running = false;
+<i class="no-highlight">208</i>&nbsp;		if(this.step&gt;0) {
+<i class="no-highlight">209</i>&nbsp;			System.out.println(&quot;DAS: &quot; + (this.nbLoop - count) + &quot; actions done for &quot; + this.nbLoop + &quot; turns asked.&quot;);
+<i class="no-highlight">210</i>&nbsp;		}else {
+<b class="fc"><i class="no-highlight">211</i>&nbsp;			System.out.println(&quot;DAS: &quot; + (count) + &quot; actions done!&quot;);			</b>
+<b class="fc"><i class="no-highlight">212</i>&nbsp;		}</b>
+<i class="no-highlight">213</i>&nbsp;	}
+<i class="no-highlight">214</i>&nbsp;
+<i class="no-highlight">215</i>&nbsp;	public void start(){
+<b class="fc"><i class="no-highlight">216</i>&nbsp;		this.running = true;</b>
+<b class="fc"><i class="no-highlight">217</i>&nbsp;		this.t.start();</b>
+<b class="fc"><i class="no-highlight">218</i>&nbsp;	}</b>
+<i class="no-highlight">219</i>&nbsp;
+<i class="no-highlight">220</i>&nbsp;	public void stop(){
+<i class="no-highlight">221</i>&nbsp;		System.out.println(&quot;STOP THREAD &quot; + t.getName() + &quot;obj &quot; + this);
+<b class="fc"><i class="no-highlight">222</i>&nbsp;		this.running = false;</b>
+<b class="fc"><i class="no-highlight">223</i>&nbsp;	}</b>
+<b class="fc"><i class="no-highlight">224</i>&nbsp;	</b>
+<b class="fc"><i class="no-highlight">225</i>&nbsp;	public String toString(){</b>
+<b class="fc"><i class="no-highlight">226</i>&nbsp;		StringBuffer toS = new StringBuffer(&quot;------------------\nTestAuto :&quot; + this.actionsList.size());</b>
+<b class="fc"><i class="no-highlight">227</i>&nbsp;		for(DiscreteActionInterface c : this.actionsList){</b>
+<i class="no-highlight">228</i>&nbsp;			toS.append(c.toString() + &quot;\n&quot;);
+<i class="no-highlight">229</i>&nbsp;		}
+<i class="no-highlight">230</i>&nbsp;		toS.append(&quot;---------------------\n&quot;);
+<b class="fc"><i class="no-highlight">231</i>&nbsp;		return toS.toString();</b>
+<i class="no-highlight">232</i>&nbsp;	}
+<i class="no-highlight">233</i>&nbsp;
+<i class="no-highlight">234</i>&nbsp;	public boolean getRunning() {
+<i class="no-highlight">235</i>&nbsp;		return this.running;
+<i class="no-highlight">236</i>&nbsp;	}
+<i class="no-highlight">237</i>&nbsp;
+<i class="no-highlight">238</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-04-15 09:32</div>
+</div>
+</body>
+</html>

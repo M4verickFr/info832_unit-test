@@ -1,13 +1,11 @@
 # 🧪 INFO832 - Projet de test unitaire
 
 ## 🎯 Objectifs du projet
-___
 
 L'objectif est dans un cadre scolaire, il permet la découverte de l'utilisation des tests unitaires. 
 Il passe par la compréhension du système, la création de tests unitaires ainsi que le refactoring.
 
 ## 🔢 Etapes du projet
-___
 
 
 ### 1️⃣ Analyser le projet en question :
